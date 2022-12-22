@@ -36,15 +36,14 @@ const loanSchema = new mongoose.Schema({
         required: true,
         default: false,
     },
-    loan_discount: {
-        type: Number,
-        required: true,
-        default: 0.0,
-    },
     date_applied: {
         type: Date,
         required: true,
         default: Date.now(),
+    },
+    EMI: {
+        type: String,
+        enum: ['Fixed, Reducing'],
     }
 }, { timestamps: true });
 

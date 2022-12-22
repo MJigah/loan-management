@@ -36,13 +36,13 @@ const Sidebar = ({children}) => {
             icon:<FaCommentAlt/>
         },
         {
-            path:"/product",
-            name:"Product",
+            path:"/login",
+            name:"Login",
             icon:<FaShoppingBag/>
         },
         {
-            path:"/productList",
-            name:"Product List",
+            path:"/signup",
+            name:"Register",
             icon:<FaThList/>
         }
     ]
@@ -54,6 +54,9 @@ const Sidebar = ({children}) => {
                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                        <FaBars onClick={toggle}/>
                    </div>
+               </div>
+               <div className="user_name">
+                User- Name
                </div>
                {
                    menuItem.map((item, index)=>(
