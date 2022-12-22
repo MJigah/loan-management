@@ -2,6 +2,8 @@
     margin:0;
     padding:0;
     text-decoration: none;
+    letter-spacing: .6px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 .container{
     display:flex;
@@ -48,4 +50,151 @@ main{
 }
 .icon, .link_text{
     font-size: 20px;
+}
+
+.signup-form{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(88, 88, 88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    padding: 20px 5px;
+    width: 50%;
+}
+
+.input-form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-div div{
+    margin: 0 35px;
+    width: 100%;
+}
+
+.input-div input{
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid rgb(140, 140, 140);
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.submit-div{
+    padding: 10px;
+}
+
+.submit-input{
+    border: 1px solid rgb(140, 140, 140);
+    color: rgb(140, 140, 140);
+    background: none;
+    display: flex;
+    margin: 5px auto;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.submit-input:hover{
+    background: rgb(140, 140, 140);
+    color: #fff;
+}
+
+.login-input-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.login-input-div input{
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid rgb(140, 140, 140);
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.loan-form{
+    border: 1px solid red;
+    margin: 1px auto;
+    padding: 15px;
+    width: 70%;
+}
+
+.input-group{
+    display:flex;
+    flex-direction: row;
+}
+
+.input-group div{
+    margin: 4px 10px;    
+}
+
+.input-form input{
+    padding: 5px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+}
+
+.input-form input[type="number"], 
+.input-form input[type="date"]{
+    border: 1px solid grey;
+}
+
+.input-radio-form{
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.input-radio-form label input{
+    margin: 0 8px;
+}
+
+
+@media (max-width: 375px){
+    .signup-form{
+        border: 1px solid black;
+        margin: 100px auto;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .input-div div{
+        margin: 0 5px;
+        width: 100%;
+    }
+
+    .input-div{
+        flex-direction: column;
+    }
+
+    .input-div input{
+        width: 100%;
+        padding: 5px;
+    }
 }

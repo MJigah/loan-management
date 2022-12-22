@@ -26,8 +26,8 @@ const Sidebar = ({children}) => {
             icon:<FaUserAlt/>
         },
         {
-            path:"/analytics",
-            name:"Analytics",
+            path:"/loan",
+            name:"Request Loan",
             icon:<FaRegChartBar/>
         },
         {
