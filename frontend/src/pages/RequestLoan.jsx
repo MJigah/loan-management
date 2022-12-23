@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Analytics = () => {
   const onSubmit = (e) => {
     e.preventDefault();
   };
+
+  const [fullname, setFullname] = useState('')
+  const [email, setEmail] = useState('')
+  const [loanAmount, setLoanAmount] = useState('1000')
+  const [duration, setDuration] = useState('5')
+  const [loanStart, setLoanStart] = useState()
+  const [emi, setEmi] = useState('')
+  const [interest, setInterest] = useState('3')
+
+  const calcLoan = () => {
+    var loanAmountInt = parseInt(loanAmount);
+    var durationInt = parseInt(duration);
+    var interestInt = parseInt(interest);
+    const loan_div = loanAmountInt/durationInt;
+    const loan_interest = (loanAmountInt*interestInt)/100;
+    const calculatedBal = loan_div + loan_interest;
+    return calculatedBal;
+  }
+  const calculatedPay = calcLoan();
+  const loanChange = (e) => {
+    setLoanStart(e.target.value)
+  }
 
   return (
     <div className="container">
@@ -13,11 +35,11 @@ const Analytics = () => {
           <div className="input-group">
             <div className="input-form">
               <label htmlFor="full_name">Full Name</label>
-              <input type="text" name="full_name" id="full_name" />
+              <input type="text" name="full_name" id="full_name" onClick={(e) => setFullname(e.target.value)}/>
             </div>
             <div className="input-form">
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
+              <input type="text" name="email" id="email" onClick={(e) => setEmail(e.target.value)}/>
             </div>
           </div>
           <div className="input-group">
@@ -29,6 +51,7 @@ const Analytics = () => {
                 defaultValue="1000"
                 name="loan_amount"
                 id="loan_amount"
+                onChange={(e) => setLoanAmount(e.target.value)}
               />
             </div>
             <div className="input-form">
@@ -37,25 +60,38 @@ const Analytics = () => {
                 type="number"
                 name="loan_balance"
                 id="loan_balance"
-                value="0.0"
+                value={loanAmount}
                 disabled="disabled"
+                // value="0..0"
               />
             </div>
           </div>
+          <div className="input-group">
           <div className="input-form">
             <label htmlFor="duration">Loan Plan/Duration</label>
             <input
               type="number"
               min="1"
               name="duration"
-              defaultValue="1"
+              defaultValue="5"
               id="duration"
+              onChange={(e) => setDuration(e.target.value)}
             />
+          </div>
+          <div className="input-form">
+            <label htmlFor="duration">Interest Rate</label>
+            <select id="duration">
+                <option value="2" onClick={(e) => setInterest(e.target.value)}>2%</option>
+                <option value="3" onClick={(e) => setInterest(e.target.value)}>3%</option>
+                <option value="4" onClick={(e) => setInterest(e.target.value)}>4%</option>
+                <option value="5" onClick={(e) => setInterest(e.target.value)}>5%</option>
+            </select>
+          </div>
           </div>
           <div className="input-group">
             <div className="input-form">
               <label htmlFor="loan_start">Effective Date</label>
-              <input type="date" name="loan_start" id="loan_start" />
+              <input type="date" name="loan_start" id="loan_start" onchange={loanChange} />
             </div>
             <div className="input-form">
               <label htmlFor="loan_end">Expiry date</label>
@@ -67,8 +103,7 @@ const Analytics = () => {
               />
             </div>
           </div>
-          <hr />
-          <div className="input-radio-group">
+          <div className="input-radio-group emi-div">
               <label htmlFor="EMI">EMI:</label>
             <div className="input-radio-form">
               <label>
@@ -86,16 +121,17 @@ const Analytics = () => {
                 Reducing
               </label>
             </div>
+          </div>
             <div className="input-form">
               <label htmlFor="monthly_payment">Monthly Pay</label>
               <input
                 type="number"
                 name="monthly_payment"
                 id="monthly_payment"
+                value={calculatedPay}
                 disabled="disabled"
               />
             </div>
-          </div>
           <div className="submit-form">
             <button type="submit">Submit</button>
           </div>
