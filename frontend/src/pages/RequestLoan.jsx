@@ -9,9 +9,9 @@ const Analytics = () => {
   const [email, setEmail] = useState('')
   const [loanAmount, setLoanAmount] = useState('1000')
   const [duration, setDuration] = useState('5')
-  const [loanStart, setLoanStart] = useState()
+  const [loanStart, setLoanStart] = useState('')
   const [emi, setEmi] = useState('')
-  const [interest, setInterest] = useState('3')
+  const [interest, setInterest] = useState('2')
 
   const calcLoan = () => {
     var loanAmountInt = parseInt(loanAmount);
@@ -24,22 +24,23 @@ const Analytics = () => {
   }
   const calculatedPay = calcLoan();
   const loanChange = (e) => {
-    setLoanStart(e.target.value)
+    var newDate  = e.target.value;
+    setLoanStart(newDate);
   }
 
   return (
     <div className="container">
       <div className="loan-form">
         <form onSubmit={onSubmit}>
-          <h1>Apply For a New Loan</h1>
+          <h1>APPLY FOR A NEW LOAN</h1>
           <div className="input-group">
             <div className="input-form">
-              <label htmlFor="full_name">Full Name</label>
-              <input type="text" name="full_name" id="full_name" onClick={(e) => setFullname(e.target.value)}/>
+              {/* <label htmlFor="full_name">Full Name</label> */}
+              <input type="text" placeholder="Full Name" name="full_name" id="full_name" onClick={(e) => setFullname(e.target.value)}/>
             </div>
             <div className="input-form">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" onClick={(e) => setEmail(e.target.value)}/>
+              {/* <label htmlFor="email">Email</label> */}
+              <input type="text" placeholder="Email" name="email" id="email" onClick={(e) => setEmail(e.target.value)}/>
             </div>
           </div>
           <div className="input-group">
@@ -91,14 +92,15 @@ const Analytics = () => {
           <div className="input-group">
             <div className="input-form">
               <label htmlFor="loan_start">Effective Date</label>
-              <input type="date" name="loan_start" id="loan_start" onchange={loanChange} />
+              <input type="date" name="loan_start" id="loan_start" onChange={loanChange} />
             </div>
             <div className="input-form">
-              <label htmlFor="loan_end">Expiry date</label>
+              <label htmlFor="monthly_payment">Monthly Pay</label>
               <input
-                type="date"
-                name="loan_end"
-                id="loan_end"
+                type="number"
+                name="monthly_payment"
+                id="monthly_payment"
+                value={calculatedPay}
                 disabled="disabled"
               />
             </div>
@@ -112,7 +114,7 @@ const Analytics = () => {
                   name="EMI"
                   value="Fixed"
                   id="EMI"
-                  checked={true}
+                  // checked={true}
                 />
                 Fixed
               </label>
@@ -122,16 +124,6 @@ const Analytics = () => {
               </label>
             </div>
           </div>
-            <div className="input-form">
-              <label htmlFor="monthly_payment">Monthly Pay</label>
-              <input
-                type="number"
-                name="monthly_payment"
-                id="monthly_payment"
-                value={calculatedPay}
-                disabled="disabled"
-              />
-            </div>
           <div className="submit-form">
             <button type="submit">Submit</button>
           </div>
