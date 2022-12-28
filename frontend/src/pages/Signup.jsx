@@ -4,7 +4,11 @@ const Signup = () => {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone_no, setPhoneNo] = useState("");
+  const [home_no, setHomeNo] = useState("");
+  const [dob, setDOB] = useState("");
+  const [work_no, setWorkNo] = useState("");
+  const [postal_code, setPostalCode] = useState("");
+  const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -18,9 +22,9 @@ const Signup = () => {
       <div className="container">
         <div className="signup-form">
           <div className="signup-title">
-            <h1>Register</h1>
+            <h1>REGISTER</h1>
           </div>
-          <form className="input-form" onSubmit={submitForm}>
+          <form className="input-signup-form" onSubmit={submitForm}>
             <div className="input-div">
               <div>
                 <input
@@ -46,6 +50,18 @@ const Signup = () => {
             <div className="input-div">
               <div>
                 <input
+                  id="address"
+                  type="text"
+                  name="address"
+                  placeholder="Contact Address"
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="input-div">
+              <div>
+                <input
                   id="email"
                   type="email"
                   name="email"
@@ -56,11 +72,46 @@ const Signup = () => {
               </div>
               <div>
                 <input
-                  id="phone_no"
+                  id="postal_code"
                   type="text"
-                  name="phone_no"
-                  placeholder="Phone Number"
-                  onChange={(e) => setPhoneNo(e.target.value)}
+                  name="postal_code"
+                  placeholder="Postal Code"
+                  onChange={(e) => setPostalCode(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="input-div">
+              <div>
+                <label htmlFor="dob">Date of Birth(must be 18yrs or over)</label>
+                <input
+                  id="dob"
+                  type="date"
+                  name="dob"
+                  placeholder="Date of Birth"
+                  onChange={(e) => setDOB(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="input-div">
+              <div>
+                <input
+                  id="home_no"
+                  type="text"
+                  name="home_no"
+                  placeholder="Home Number"
+                  onChange={(e) => setHomeNo(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  id="work_no"
+                  type="text"
+                  name="work_no"
+                  placeholder="Work Number"
+                  onChange={(e) => setWorkNo(e.target.value)}
                   required
                 />
               </div>

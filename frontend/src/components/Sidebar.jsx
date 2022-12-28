@@ -8,6 +8,10 @@ import {
     FaShoppingBag,
     FaThList
 }from "react-icons/fa";
+import {
+    GoSignIn
+}from "react-icons/go";
+import { GiEntryDoor } from "react-icons/gi"
 import { NavLink } from 'react-router-dom';
 
 
@@ -38,12 +42,12 @@ const Sidebar = ({children}) => {
         {
             path:"/login",
             name:"Login",
-            icon:<FaShoppingBag/>
+            icon:<GoSignIn/>
         },
         {
             path:"/signup",
             name:"Register",
-            icon:<FaThList/>
+            icon:<GiEntryDoor/>
         }
     ]
     return (
