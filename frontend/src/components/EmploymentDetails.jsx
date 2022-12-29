@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-const EmploymentDetails = ({ prevStep, nextStep, values, handleChange }) => {
+const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
   const [employerNumber, setEmployerNumber] = useState("");
   const [deparment, setDeparment] = useState("");
   const [employerAddress, setEmployerAddress] = useState("");
   const [employmentTerm, setEmploymentTerm] = useState("");
 
   return (
-    <>
+    <>      
+    <div className="counter"><p>EMPLOYMENT INFORMATION</p><p>{step}/5</p></div>
       <div className="input-group">
         <div className="input-form">
           <input
@@ -15,6 +16,7 @@ const EmploymentDetails = ({ prevStep, nextStep, values, handleChange }) => {
             placeholder="Employer's Number"
             name="employerNumber"
             id="employerNumber"
+            value={values.employerNumber}
             onClick={(e) => setEmployerNumber(e.target.value)}
           />
         </div>
@@ -26,6 +28,7 @@ const EmploymentDetails = ({ prevStep, nextStep, values, handleChange }) => {
             placeholder="Department"
             name="department"
             id="department"
+            value={values.deparment}
             onClick={(e) => setDeparment(e.target.value)}
           />
         </div>
@@ -37,6 +40,7 @@ const EmploymentDetails = ({ prevStep, nextStep, values, handleChange }) => {
             placeholder="Employer's Address"
             name="employerAddress"
             id="employerAddress"
+            value={values.employerAddress}
             onClick={(e) => setEmployerAddress(e.target.value)}
           />
         </div>
@@ -48,6 +52,7 @@ const EmploymentDetails = ({ prevStep, nextStep, values, handleChange }) => {
             placeholder="Employment Term"
             name="employmenyTerm"
             id="employmenyTerm"
+            value={values.employmentTerm}
             onClick={(e) => setEmploymentTerm(e.target.value)}
           />
         </div>

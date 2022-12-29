@@ -89,7 +89,7 @@ main{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-sizing: border-box;
-    background: url('./asset/img/signin-pic.jpg') center center/cover no-repeat;
+    background: url('./asset/img/loan.jpg') center center/cover no-repeat;
     width: 100%;
     height: 170px;
     text-align: center;
@@ -99,7 +99,7 @@ main{
 .loan-title-div h1{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background: rgba(77, 106, 100, 0.324);
+    background: rgba(14, 17, 37, 0.49);
     display: flex;
     box-sizing: border-box;
     height: 100%;
@@ -396,6 +396,76 @@ input:disabled{
     cursor: not-allowed;
     font-weight: normal;
     color: grey;
+}
+
+.counter{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: grey;
+    margin: 0 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.declaration-div{
+    margin: 0 22px;
+    color:rgb(140, 140, 140)
+}
+
+.declaration-div p{
+    margin: 10px 0;
+}
+
+.declaration-div .declaration-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.declaration-button button{
+    padding: 10px;
+    width: 100px;
+    outline: none;
+    border: 1px solid rgb(180, 180, 180);
+    color: rgb(180, 180, 180);
+    background: transparent;
+}
+
+.declaration-button button:hover{
+    background: rgb(180, 180, 180);
+    color: #fff;
+}
+
+.declaration-check input[type="checkbox"]{
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: .9em;
+    height: .9em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+.declaration-check input[type="checkbox"]::before{
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em grey;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.declaration-check input[type="checkbox"]:checked::before{
+    transform: scale(1)
 }
 
 @media (max-width: 375px){

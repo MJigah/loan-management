@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PersonalDetails = ({ nextStep, handleChange, values }) => {
+const PersonalDetails = ({ step, nextStep, handleChange, values }) => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [membershipNumber, setMembershipNumber] = useState("");
@@ -10,13 +10,15 @@ const PersonalDetails = ({ nextStep, handleChange, values }) => {
 
   return (
     <>
+      <div className="counter"><p>PERSONAL INFORMATION</p><p>{step}/5</p></div>
       <div className="input-group">
         <div className="input-form">
           <input
             type="text"
             placeholder="Full Name"
-            name="full_name"
-            id="full_name"
+            name="fullname"
+            id="fullname"
+            value={values.fullname}
             onClick={(e) => setFullname(e.target.value)}
           />
         </div>
@@ -78,7 +80,7 @@ const PersonalDetails = ({ nextStep, handleChange, values }) => {
         </div>
       </div>
       <div className="submit-loan-form">
-        <button type="submit" disabled="disabled">PREVIOUS</button>
+        <button type="submit" disabled="disabled">{""}</button>
         <button type="submit" onClick={nextStep} >NEXT</button>
       </div>
     </>

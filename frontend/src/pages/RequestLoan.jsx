@@ -29,6 +29,7 @@ const RequestLoan = () => {
     loanPurpose: "",
     emi: "",
     interest: "",
+    monthlyPayment: "",
     accountName: "",
     accountNumber: "",
     salary: "",
@@ -67,8 +68,8 @@ const RequestLoan = () => {
     duration,
     loanStart,
     loanPurpose,
-    emi,
     interest,
+    monthlyPayment,
     accountName,
     accountNumber,
     salary,
@@ -92,6 +93,7 @@ const RequestLoan = () => {
     loanStart,
     loanPurpose,
     interest,
+    monthlyPayment,
     accountName,
     accountNumber,
     salary,
@@ -113,6 +115,7 @@ const RequestLoan = () => {
                   nextStep={nextStep}
                   handleChange={handleChange}
                   values={values}
+                  step={step}
                 />
               </form>
             </div>
@@ -133,6 +136,7 @@ const RequestLoan = () => {
                   nextStep={nextStep}
                   values={values}
                   handleChange={handleChange}
+                  step={step}
                 />
               </form>
             </div>
@@ -153,6 +157,7 @@ const RequestLoan = () => {
                   nextStep={nextStep}
                   values={values}
                   handleChange={handleChange}
+                  step={step}
                 />
               </form>
             </div>
@@ -173,6 +178,7 @@ const RequestLoan = () => {
                   nextStep={nextStep}
                   values={values}
                   handleChange={handleChange}
+                  step={step}
                 />
               </form>
             </div>
@@ -188,7 +194,11 @@ const RequestLoan = () => {
                 <h1>APPLY FOR A NEW LOAN</h1>
               </div>
               <form onSubmit={onSubmit}>
-                <Declaration />
+                <Declaration
+                  step={step}
+                  prevStep={prevStep}
+                  values={values}
+                />
               </form>
             </div>
           </div>

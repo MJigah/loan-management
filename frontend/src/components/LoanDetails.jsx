@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
+const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
   const [loanAmount, setLoanAmount] = useState("1000");
   const [duration, setDuration] = useState("5");
   const [loanStart, setLoanStart] = useState("");
@@ -21,9 +21,11 @@ const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
     var newDate = e.target.value;
     setLoanStart(newDate);
   };
-
+  values.monthlyPayment = calculatedPay;
+  
   return (
     <>
+    <div className="counter"><p>LOAN INFORMATION</p><p>{step}/5</p></div>
       <div className="input-group">
         <div className="input-form">
           <label htmlFor="loan_amount">Principal Loan</label>
@@ -31,8 +33,9 @@ const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
             type="number"
             min="1000"
             defaultValue="1000"
-            name="loan_amount"
-            id="loan_amount"
+            name="loanAmount"
+            id="loanAmount"
+            value={values.loanAmount}
             onChange={(e) => setLoanAmount(e.target.value)}
           />
         </div>
@@ -40,8 +43,9 @@ const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
           <label htmlFor="loan_start">Effective Date</label>
           <input
             type="date"
-            name="loan_start"
-            id="loan_start"
+            name="loanStart"
+            id="loanStart"
+            value={values.loanStart}
             onChange={loanChange}
           />
         </div>
@@ -67,22 +71,23 @@ const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
             name="duration"
             defaultValue="5"
             id="duration"
+            value={values.duration}
             onChange={(e) => setDuration(e.target.value)}
           />
         </div>
         <div className="input-form">
-          <label htmlFor="duration">Interest Rate</label>
-          <select id="duration">
-            <option value="2" onClick={(e) => setInterest(e.target.value)}>
+          <label htmlFor="interest">Interest Rate</label>
+          <select id="interest">
+            <option value={values.interest} defaultValue="2" onClick={(e) => setInterest(e.target.value)}>
               2%
             </option>
-            <option value="3" onClick={(e) => setInterest(e.target.value)}>
+            <option value={values.interest} defaultValue="3" onClick={(e) => setInterest(e.target.value)}>
               3%
             </option>
-            <option value="4" onClick={(e) => setInterest(e.target.value)}>
+            <option value={values.interest} defaultValue="4" onClick={(e) => setInterest(e.target.value)}>
               4%
             </option>
-            <option value="5" onClick={(e) => setInterest(e.target.value)}>
+            <option value={values.interest} defaultValue="5" onClick={(e) => setInterest(e.target.value)}>
               5%
             </option>
           </select>
@@ -93,8 +98,8 @@ const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
           <label htmlFor="monthly_payment">Monthly Pay</label>
           <input
             type="number"
-            name="monthly_payment"
-            id="monthly_payment"
+            name="monthlyPayment"
+            id="monthlyPayment"
             value={calculatedPay}
             disabled="disabled"
           />
