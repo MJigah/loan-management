@@ -17,26 +17,26 @@ const Sidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
-        {
-            path:"/",
-            name:"Dashboard",
-            icon:<FaTh/>
-        },
-        {
-            path:"/about",
-            name:"About",
-            icon:<FaUserAlt/>
-        },
+        // {
+        //     path:"/",
+        //     name:"Dashboard",
+        //     icon:<FaTh/>
+        // },
+        // {
+        //     path:"/about",
+        //     name:"About",
+        //     icon:<FaUserAlt/>
+        // },
         {
             path:"/loan",
             name:"Request Loan",
             icon:<FaRegChartBar/>
         },
-        {
-            path:"/comment",
-            name:"Comment",
-            icon:<FaCommentAlt/>
-        },
+        // {
+        //     path:"/comment",
+        //     name:"Comment",
+        //     icon:<FaCommentAlt/>
+        // },
         {
             path:"/login",
             name:"Login",

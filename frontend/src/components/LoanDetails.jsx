@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const LoanDetails = () => {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
+const LoanDetails = ({ prevStep, nextStep, values, handleChange }) => {
   const [loanAmount, setLoanAmount] = useState("1000");
   const [duration, setDuration] = useState("5");
   const [loanStart, setLoanStart] = useState("");
-  const [emi, setEmi] = useState("");
   const [interest, setInterest] = useState("2");
+  const [loanPurpose, setloanPurpose] = useState("");
 
   const calcLoan = () => {
     var loanAmountInt = parseInt(loanAmount);
@@ -28,28 +26,6 @@ const LoanDetails = () => {
     <>
       <div className="input-group">
         <div className="input-form">
-          {/* <label htmlFor="full_name">Full Name</label> */}
-          <input
-            type="text"
-            placeholder="Full Name"
-            name="full_name"
-            id="full_name"
-            onClick={(e) => setFullname(e.target.value)}
-          />
-        </div>
-        <div className="input-form">
-          {/* <label htmlFor="email">Email</label> */}
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            id="email"
-            onClick={(e) => setEmail(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="input-group">
-        <div className="input-form">
           <label htmlFor="loan_amount">Principal Loan</label>
           <input
             type="number"
@@ -61,14 +37,24 @@ const LoanDetails = () => {
           />
         </div>
         <div className="input-form">
-          <label htmlFor="loan_balance">Loan Balance</label>
+          <label htmlFor="loan_start">Effective Date</label>
           <input
-            type="number"
-            name="loan_balance"
-            id="loan_balance"
-            value={loanAmount}
-            disabled="disabled"
-            // value="0..0"
+            type="date"
+            name="loan_start"
+            id="loan_start"
+            onChange={loanChange}
+          />
+        </div>
+      </div>
+      <div className="input-group">
+        <div className="input-form">
+          <input
+            type="text"
+            value={values.loanPurpose}
+            name="loanPurpose"
+            id="loanPurpose"
+            placeholder="Purpose of Loan"
+            onChange={(e) => setloanPurpose(e.target.value)}
           />
         </div>
       </div>
@@ -104,15 +90,6 @@ const LoanDetails = () => {
       </div>
       <div className="input-group">
         <div className="input-form">
-          <label htmlFor="loan_start">Effective Date</label>
-          <input
-            type="date"
-            name="loan_start"
-            id="loan_start"
-            onChange={loanChange}
-          />
-        </div>
-        <div className="input-form">
           <label htmlFor="monthly_payment">Monthly Pay</label>
           <input
             type="number"
@@ -123,30 +100,16 @@ const LoanDetails = () => {
           />
         </div>
       </div>
-      <div className="input-radio-group emi-div">
-        <label htmlFor="EMI">EMI:</label>
-        <div className="input-radio-form">
-          <label>
-            <input
-              type="radio"
-              name="EMI"
-              value="Fixed"
-              id="EMI"
-              // checked={true}
-            />
-            Fixed
-          </label>
-          <label>
-            <input type="radio" name="EMI" value="Reducing" id="EMI" />
-            Reducing
-          </label>
-        </div>
-      </div>
-      <div className="submit-form">
-        <button type="submit">Submit</button>
+      <div className="submit-loan-form">
+        <button type="submit" onClick={prevStep}>
+          PREVIOUS
+        </button>
+        <button type="submit" onClick={nextStep}>
+          NEXT
+        </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default LoanDetails
+export default LoanDetails;

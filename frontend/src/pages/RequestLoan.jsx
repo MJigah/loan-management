@@ -91,7 +91,6 @@ const RequestLoan = () => {
     duration,
     loanStart,
     loanPurpose,
-    emi,
     interest,
     accountName,
     accountNumber,
@@ -106,8 +105,10 @@ const RequestLoan = () => {
         <div className="loan-container">
           <div className="container">
             <div className="loan-form">
-              <form onSubmit={onSubmit}>
+              <div className="loan-title-div">
                 <h1>APPLY FOR A NEW LOAN</h1>
+              </div>
+              <form onSubmit={onSubmit}>
                 <PersonalDetails
                   nextStep={nextStep}
                   handleChange={handleChange}
@@ -123,8 +124,10 @@ const RequestLoan = () => {
         <div className="loan-container">
           <div className="container">
             <div className="loan-form">
-              <form onSubmit={onSubmit}>
+            <div className="loan-title-div">
                 <h1>APPLY FOR A NEW LOAN</h1>
+              </div>
+              <form onSubmit={onSubmit}>
                 <EmploymentDetails
                   prevStep={prevStep}
                   nextStep={nextStep}
@@ -141,8 +144,10 @@ const RequestLoan = () => {
         <div className="loan-container">
           <div className="container">
             <div className="loan-form">
-              <form onSubmit={onSubmit}>
+            <div className="loan-title-div">
                 <h1>APPLY FOR A NEW LOAN</h1>
+              </div>
+              <form onSubmit={onSubmit}>
                 <LoanDetails
                   prevStep={prevStep}
                   nextStep={nextStep}
@@ -159,8 +164,10 @@ const RequestLoan = () => {
         <div className="loan-container">
           <div className="container">
             <div className="loan-form">
-              <form onSubmit={onSubmit}>
+            <div className="loan-title-div">
                 <h1>APPLY FOR A NEW LOAN</h1>
+              </div>
+              <form onSubmit={onSubmit}>
                 <SalaryDetails
                   prevStep={prevStep}
                   nextStep={nextStep}
@@ -177,8 +184,10 @@ const RequestLoan = () => {
         <div className="loan-container">
           <div className="container">
             <div className="loan-form">
-              <form onSubmit={onSubmit}>
+            <div className="loan-title-div">
                 <h1>APPLY FOR A NEW LOAN</h1>
+              </div>
+              <form onSubmit={onSubmit}>
                 <Declaration />
               </form>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PersonalDetails = ({nextStep, handleChange, values}) => {
+const PersonalDetails = ({ nextStep, handleChange, values }) => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [membershipNumber, setMembershipNumber] = useState("");
@@ -32,7 +32,7 @@ const PersonalDetails = ({nextStep, handleChange, values}) => {
         </div>
       </div>
       <div className="input-group">
-      <div className="input-form">
+        <div className="input-form">
           <input
             type="text"
             placeholder="Membership Number"
@@ -77,8 +77,9 @@ const PersonalDetails = ({nextStep, handleChange, values}) => {
           />
         </div>
       </div>
-      <div className="submit-form">
-        <button type="submit">Submit</button>
+      <div className="submit-loan-form">
+        <button type="submit" disabled="disabled">PREVIOUS</button>
+        <button type="submit" onClick={nextStep} >NEXT</button>
       </div>
     </>
   );
