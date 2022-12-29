@@ -4,9 +4,7 @@ import {
     FaBars,
     FaUserAlt,
     FaRegChartBar,
-    FaCommentAlt,
-    FaShoppingBag,
-    FaThList
+    FaCommentAlt
 }from "react-icons/fa";
 import {
     GoSignIn
@@ -60,7 +58,7 @@ const Sidebar = ({children}) => {
                    </div>
                </div>
                <div className="user_name">
-                User- Name
+                user - name
                </div>
                {
                    menuItem.map((item, index)=>(

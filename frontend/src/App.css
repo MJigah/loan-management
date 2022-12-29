@@ -55,6 +55,10 @@ main{
     background: rgb(233, 233, 233);
 }
 
+.signup-container{
+    background: rgb(233, 233, 233);
+}
+
 .signin-form{
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(88, 88, 88);
@@ -168,7 +172,7 @@ main{
 }
 
 .input-div input::placeholder{
-    color: rgb(129, 129, 129);
+    color: rgb(27, 25, 25);
 }
 
 .submit-div{
@@ -192,7 +196,7 @@ main{
 .submit-input:hover{
     background: rgba(128, 128, 128, 0.502);
     color: #fff;
-    border: none;
+    border: 1px solid transparent;
 }
 
 .login-input-form{
