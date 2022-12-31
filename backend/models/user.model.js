@@ -5,7 +5,31 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    username: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    postalCode: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    DOB: {
+        type: String,
+        required: true
+    },
+    homeNumber: {
+        type: String,
+        required: true
+    },
+    workNumber: {
         type: String,
         required: true
     },

@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from "react-toastify";
+import { register, reset } from "../feature/auth/auth.slice";
 
 const Signup = () => {
+  const dispatch = useDispatch();
+
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,10 +17,40 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth)
+
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("Submit form");
+    if(password !== confirmPassword){
+      toast.error('Passwords don\'t match')
+    } else {
+      const userData = {
+        firstname,
+        lastname,
+        email,
+        home_no,
+        dob,
+        work_no,
+        postal_code,
+        address,
+        password
+      }
+      dispatch(register(userData));
+    }
   };
+
+  useEffect(() => {
+    if(isError){
+      toast.error(message)
+    }
+
+    if(isSuccess)(
+      toast.success(message)
+    )
+
+    dispatch(reset());
+  }, [isSuccess, message, isError, dispatch])
+
 
   return (
     <div className="signup-container">
@@ -120,7 +155,7 @@ const Signup = () => {
               <div>
                 <input
                   id="password"
-                  type="paswword"
+                  type="password"
                   name="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -130,7 +165,7 @@ const Signup = () => {
               <div>
                 <input
                   id="confirmPassword"
-                  type="paswword"
+                  type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
                   onChange={(e) => setConfirmPassword(e.target.value)}
