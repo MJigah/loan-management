@@ -4,7 +4,7 @@ const { generateToken } = require("../middlewares/token.middleware");
 
 const registerUser = async (req, res) => {
     try {
-        const { email, firstname: firstName, lastName: lastname, address, postalCode: postal_code, DOB: dob, homeNumber: home_no, workNumber: work_no, password } = req.body;
+        const { email, firstname: firstName, lastname: lastName, address, postal_code: postalCode, dob: DOB, home_no: homeNumber, work_no: workNumber, password } = req.body;
         const checkUser = await userModel.findOne({email});
         if(checkUser){
             res.send({message: 'User already exists!'});

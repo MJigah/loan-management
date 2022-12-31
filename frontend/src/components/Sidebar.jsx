@@ -17,11 +17,11 @@ const Sidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
-        // {
-        //     path:"/",
-        //     name:"Dashboard",
-        //     icon:<FaTh/>
-        // },
+        {
+            path:"/",
+            name:"Dashboard",
+            icon:<FaTh/>
+        },
         // {
         //     path:"/about",
         //     name:"About",

@@ -1,13 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { login, reset } from "../feature/auth/auth.slice";
 
 const Signin = () => {
+  const dispatch = useDispatch();
+
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth)
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("Submit form");
+    const userData = {
+      email,
+      password
+    }
+    dispatch(login(userData));
   };
+
+  useEffect(() => {
+    if(isError){
+      toast.error(message)
+    }
+
+    if(isSuccess)(
+      toast.success(message)
+    )
+
+    dispatch(reset());
+  }, [isSuccess, message, isError, dispatch])
 
   return (
     <div className="container signin-container">
