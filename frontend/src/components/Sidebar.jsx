@@ -57,9 +57,6 @@ const Sidebar = ({children}) => {
                        <FaBars onClick={toggle}/>
                    </div>
                </div>
-               <div className="user_name">
-                user - name
-               </div>
                {
                    menuItem.map((item, index)=>(
                        <NavLink to={item.path} key={index} className="link" activeclassName="active">

@@ -63,6 +63,10 @@ main{
     background: rgb(233, 233, 233);
 }
 
+.dashboard-container{
+    background: url('./asset/img/dashboard-pic.jpg') no-repeat center center/cover;
+}
+
 .signin-form{
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(88, 88, 88);
@@ -466,6 +470,95 @@ input:disabled{
 
 .declaration-check input[type="checkbox"]:checked::before{
     transform: scale(1)
+}
+
+.dashboard-container{
+    height: 100vh;
+}
+
+.dash-cont{
+    background: rgba(0, 0, 0, 0.478);
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-nav{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 20px 15px;
+}
+
+.sign-div{
+    /* border: 1px solid purple; */
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sign-div a{
+    border: 1px solid #fff;
+    padding: 8px;
+    color:#fff;
+    border-radius: 20px;
+}
+
+.sign-div a:hover{
+    border-color: transparent;
+    background: #fff;
+    color: black;
+}
+
+.dashboard-body{
+    margin: 80px 0;
+}
+
+.dashboard-requirements{
+    margin: 150px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.requirements-header{
+    color:#fff;
+}
+
+.requirements-body{
+    margin: 25px 0;
+}
+
+.requirements-body ul{
+    box-sizing: border-box;
+    margin: 0 20px;
+}
+
+.requirements-body li{
+    margin: 20px 0;
+    color:#fff;
+}
+
+.requirements-body a{
+    color: #fff;
+    font-weight: bold;
+}
+
+.requirements-body a:hover{
+    color:rgb(162, 162, 162);
+}
+
+.apply{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apply a{
+    color: #fff;
+    background: rgb(255, 123, 75);
+    padding: 10px 17px;
+    border-radius: 20px;
 }
 
 @media (max-width: 375px){
