@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getDetails, reset } from "../feature/auth/auth.slice";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  const { user, userToken, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(getDetails());
+
+    dispatch(reset());
+  }, [dispatch])
   return (
     <div className="dashboard-container">
       <div className="dash-cont">
         <div className="dashboard-nav">
-          <div className="sign-div">
-            <Link to="/signup">Register</Link>
-            <Link to="/login">Login</Link>
-          </div>
+          {user && userToken ? (
+                      <div className="sign-div">
+                      <Link to="/">{user.firstName}</Link>
+                      <Link to="/signout">Signout</Link>
+                    </div>
+          ) : (
+                      <div className="sign-div">
+                      <Link to="/signup">Register</Link>
+                      <Link to="/login">Login</Link>
+                    </div>
+          )}
+
         </div>
         <div className="dashboard-body">
           <div className="dashboard-requirements">

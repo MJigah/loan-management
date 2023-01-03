@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser } = require('../controllers/user.controller')
+const { registerUser, loginUser, getUserDetails } = require('../controllers/user.controller');
+const { protect } = require('../middlewares/token.middleware');
 
-router.get('/', (req, res) => {
-    res.send({message: 'Connected to User Route!'})
-});
+router.get('/', protect, getUserDetails)
 
 router.post('/signup', registerUser)
 

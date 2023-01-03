@@ -9,7 +9,7 @@ const register = async (userData) => {
         localStorage.setItem('userToken', JSON.stringify(response.data.token))
     }
 
-    return response.data
+    return response.data;
 }
 
 
@@ -20,12 +20,28 @@ const login = async (userData) => {
         localStorage.setItem('userToken', JSON.stringify(response.data.token))
     }
 
-    return response.data
+    return response.data;
+}
+
+const getDetails = async (token) => {
+    const config = {
+        headers : {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.get(`${API_URL}`, config)
+
+    if(response.data && response.data.message){
+        localStorage.setItem('user', JSON.stringify(response.data.message))
+    }
+
+    return response.data;
 }
 
 const authService = {
     register,
-    login
+    login,
+    getDetails
 }
 
 export default authService;

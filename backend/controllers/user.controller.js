@@ -56,7 +56,22 @@ const loginUser = async (req, res) => {
     }
 }
 
+const getUserDetails = async (req, res) => {
+    try {
+        const id = req.user._id;
+        const checkUser = await userModel.findById(id).select({password: 0, isAdmin: 0, createdAt: 0, updatedAt: 0, __v: 0});
+        if(!checkUser){
+            res.status(400).send({message: 'Invalid or Expired token'})
+        }
+        res.status(200).send({message: checkUser})
+    } catch (error) {
+        res.status(500).send({message: 'A Server Error Occured!'})
+        console.log(error)
+    }
+}
+
 module.exports = {
     registerUser,
     loginUser,
+    getUserDetails
 }
