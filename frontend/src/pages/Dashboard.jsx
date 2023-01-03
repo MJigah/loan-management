@@ -6,29 +6,29 @@ import { getDetails, reset } from "../feature/auth/auth.slice";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const { user, userToken, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth);
+  const { user, userToken, isLoading, isError, isSuccess, message } =
+    useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getDetails());
 
     dispatch(reset());
-  }, [dispatch])
+  }, [dispatch]);
   return (
     <div className="dashboard-container">
       <div className="dash-cont">
         <div className="dashboard-nav">
           {user && userToken ? (
-                      <div className="sign-div">
-                      <Link to="/">{user.firstName}</Link>
-                      <Link to="/signout">Signout</Link>
-                    </div>
+            <div className="sign-div">
+              <Link to="/">{user.firstName}</Link>
+              <Link to="/signout">Signout</Link>
+            </div>
           ) : (
-                      <div className="sign-div">
-                      <Link to="/signup">Register</Link>
-                      <Link to="/login">Login</Link>
-                    </div>
+            <div className="sign-div">
+              <Link to="/signup">Register</Link>
+              <Link to="/login">Login</Link>
+            </div>
           )}
-
         </div>
         <div className="dashboard-body">
           <div className="dashboard-requirements">

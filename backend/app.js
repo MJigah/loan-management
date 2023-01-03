@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan')
 const cors = require('cors')
+const path = require('path');
 const colors = require('colors')
 const app = express();
 const dotenv = require('dotenv')
