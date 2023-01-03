@@ -62,7 +62,7 @@ const Dashboard = () => {
               </ul>
             </div>
             <div className="apply">
-              <Link to="/loan">APPLY FOR A LOAN</Link>
+              <Link to="/loan">APPLY</Link>
             </div>
           </div>
         </div>

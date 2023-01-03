@@ -53,17 +53,21 @@ main{
 
 .signin-container{
     background: rgb(233, 233, 233);
+    height: 100vh;
 }
 
 .signup-container{
+    height: 100vh;
     background: rgb(233, 233, 233);
 }
 
 .loan-container{
+    height: 100vh;
     background: rgb(233, 233, 233);
 }
 
 .dashboard-container{
+    height: 100vh;
     background: url('./asset/img/dashboard-pic.jpg') no-repeat center center/cover;
 }
 
@@ -72,11 +76,10 @@ main{
     box-shadow: 0 0 10px rgb(88, 88, 88);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 90px auto;
-    width: 60%;
+    margin: 50px auto;
+    width: 65%;
     background: #fff;
+    height: 600px;
 }
 
 .title-div{
@@ -273,7 +276,7 @@ main{
 
 .loan-form{
     margin: 80px auto;
-    width: 65%;
+    width: 70%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(79, 79, 79);
     background: #fff;
@@ -556,12 +559,152 @@ input:disabled{
 
 .apply a{
     color: #fff;
-    background: rgb(255, 123, 75);
+    background: rgb(176, 170, 168);
     padding: 10px 17px;
     border-radius: 20px;
 }
 
+@media (max-width: 960px){
+    .signin-form{
+        margin: 80px auto;
+        width: 90%;
+    }
+
+    .login-input-form{
+        padding: 20px 30px;
+    }
+
+    .login-input-div div input{
+        margin: 10px;
+    }
+}
+
+@media (max-width: 890px){
+    .signup-title{
+        display: none;
+    }
+
+    .loan-form{
+        width: 90%;
+        margin: 60px auto;
+    }
+}
+
+@media (max-width: 574px){
+    .signin-form{
+        margin: 60px auto;
+    }
+
+    .title-div h1{
+        font-size: 25px;
+    }
+
+    .login-input-div div label{
+        display: none;
+    }
+
+    .login-input-div div{
+        flex-direction: column;
+    }
+
+    .loan-form{
+        width: 85%;
+        margin: 50px auto;
+    }
+
+    .input-group{
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .input-group .input-form{
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    .loan-form form{
+        margin: 30px 10px;
+    }
+
+    .loan-form h1{
+        font-size: 25px;
+    }
+
+    .loan-container{
+        height: 100%;
+    }
+
+    .declaration-div{
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .declaration-div p{
+        margin: 20px 0;
+    }
+
+    .input-div{
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .input-div div{
+        margin: 20px 0;
+    }
+
+    .signup-container{
+        height: 100%;
+    }
+
+    .signup-form{
+        margin: 60px auto;
+        width: 80%;
+    }
+}
 @media (max-width: 375px){
+    .dashboard-container{
+        margin: 0;
+        height: 100%;
+        transition: all .3s;
+    }
+
+    .dash-cont{
+        height: 100%;
+        width: 100%;
+    }
+
+    .dashboard-nav{
+        padding:0;
+    }
+
+    .sign-div{
+        display: none;
+    } 
+
+    .dashboard-body{
+        height: 100vh;
+        margin: 0;
+    }
+
+    .dashboard-requirements{
+        margin: 70px 20px;
+    }
+
+    .requirements-header h3{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .requirements-body{
+        font-size: 15px;
+        line-height: 23px;
+    }
+
+    .apply{
+        margin: 0 auto;
+        font-size: 15px;
+    }
+
     .signup-form{
         border: 1px solid black;
         margin: 100px auto;
