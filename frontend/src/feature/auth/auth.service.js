@@ -3,7 +3,6 @@ import axios from 'axios'
 const API_URL = process.env.NODE_ENV === "development" ? 'http://localhost:4000/api/users/' : `${process.env.PROXY_URI}api/users`;
 
 const register = async (userData) => {
-    console.log(API_URL)
     const response = await axios.post(`${API_URL}signup`, userData)
 
     if(response.data && response.data.token){
@@ -25,6 +24,7 @@ const login = async (userData) => {
 }
 
 const getDetails = async (token) => {
+    console.log(API_URL);
     const config = {
         headers : {
             Authorization: `Bearer ${token}`

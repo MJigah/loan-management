@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom'
 import { login, reset } from "../feature/auth/auth.slice";
 
 const Signin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth)
 
@@ -21,11 +23,15 @@ const Signin = () => {
   };
 
   useEffect(() => {
+
+    if(user){
+      navigate('/');
+    }
     if(isError){
       toast.error(message)
     }
 
-    if(isSuccess)(
+    if(isSuccess && message)(
       toast.success(message)
     )
 
