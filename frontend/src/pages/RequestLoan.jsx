@@ -10,7 +10,6 @@ const RequestLoan = () => {
     e.preventDefault();
   };
 
-  const loanReqDetails = {};
   const [stepStates, setStepStates] = useState({
     step: 1,
     fullname: "",
