@@ -50,12 +50,13 @@ const Signup = () => {
       toast.error(message)
     }
 
-    if(isSuccess && message)(
+    if(isSuccess && message){
       toast.success(message)
-    )
+      navigate('/')
+    }
 
     dispatch(reset());
-  }, [isSuccess, message, isError, dispatch])
+  }, [isSuccess, message, isError, dispatch, navigate, user])
 
 
   return (

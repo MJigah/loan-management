@@ -39,10 +39,16 @@ const getDetails = async (token) => {
     return response.data;
 }
 
+const signout = () => {
+    localStorage.removeItem('userToken')
+    localStorage.removeItem('user')
+}
+
 const authService = {
     register,
     login,
-    getDetails
+    getDetails,
+    signout
 }
 
 export default authService;

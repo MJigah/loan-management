@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getDetails, reset } from "../feature/auth/auth.slice";
+import { getDetails, logout, reset } from "../feature/auth/auth.slice";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,10 @@ const Dashboard = () => {
   const { user, userToken, isLoading, isError, isSuccess, message } =
     useSelector((state) => state.auth);
 
+    const signout = () => {
+      console.log('Signout')
+      dispatch(logout)
+    }
   useEffect(() => {
     dispatch(getDetails());
 
@@ -21,7 +25,7 @@ const Dashboard = () => {
           {user && userToken ? (
             <div className="sign-div">
               <Link to="/">{user.firstName}</Link>
-              <Link to="/signout">Signout</Link>
+              <button onClick={signout}>Signout</button>
             </div>
           ) : (
             <div className="sign-div">
