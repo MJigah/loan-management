@@ -15,7 +15,6 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Sidebar>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -25,7 +24,6 @@ const App = () => {
             <Route path="/login" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
-        </Sidebar>
       </BrowserRouter>
       <ToastContainer />
     </>

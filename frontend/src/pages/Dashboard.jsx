@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDetails, logout, reset } from "../feature/auth/auth.slice";
-
+import credit from '../asset/img/credit-card-2.png';
+import profile from '../asset/img/Frame-36.png';
+import cash from '../asset/img/Frame-35.png';
 const Dashboard = () => {
   const dispatch = useDispatch();
 
@@ -28,13 +30,49 @@ const Dashboard = () => {
               <button onClick={signout}>Signout</button>
             </div>
           ) : (
-            <div className="sign-div">
-              <Link to="/signup">Register</Link>
-              <Link to="/login">Login</Link>
+            <div className="sign-div-container">
+              <div className="card-div">
+                <p>LOGO</p>
+              </div>
+              <div className="sign-div">
+                <Link to="/signup">Register</Link>
+                <Link to="/login">Login</Link>
+              </div>
             </div>
           )}
         </div>
+        <div className="dashboard-header">
+          <h2>Welcome to <span id="header-span">KoboExpress</span></h2>
+        </div>
         <div className="dashboard-body">
+          <div className="dashboard-entry">
+            <div className="entry-header">
+              <h2>Quick Cash Anytime, Anywhere</h2>
+            </div>
+            <div className="entry-body">
+              <div className="entry-info">
+                <img src={profile} alt="profile" />
+                <div>
+                  <h4>Create a Profile</h4>
+                  <p>Register an account and let's get to know you.</p>
+                </div>
+              </div>
+              <div className="entry-info">
+                <img src={credit} alt="credit card" />
+                <div>
+                  <h4>Apply for a Loan</h4>
+                  <p>Apply an we will instantly get your credit score and let machine learning decide if you qualify.</p>
+                </div>
+              </div>
+              <div className="entry-info">
+                <img src={cash} alt="cash" />
+                <div>
+                  <h4>Get Cash</h4>
+                  <p>If you qualify, your cash will be disbursed within minutes to your bank account.</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="dashboard-requirements">
             <div className="requirements-header">
               <h3>BASIC REQUIREMENTS FOR A LOAN REQUEST</h3>
@@ -65,10 +103,10 @@ const Dashboard = () => {
                 </li>
               </ul>
             </div>
-            <div className="apply">
-              <Link to="/loan">APPLY</Link>
-            </div>
           </div>
+            <div className="apply">
+              <Link to="/loan">GET STARTED</Link>
+            </div>
         </div>
       </div>
     </div>
