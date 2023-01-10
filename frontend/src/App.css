@@ -52,7 +52,7 @@ main{
 }
 
 .signin-container{
-    background: rgb(233, 233, 233);
+    background: url('./asset/img/image-10.jpg') no-repeat center center/cover;
     height: 100vh;
 }
 
@@ -71,25 +71,44 @@ main{
     background: url('./asset/img/dashboard-pic.jpg') no-repeat center center/cover;
 }
 
+.signin-form-container{
+    background: #07070756;
+    width: 100%;
+    height: 100%;
+}
+
 .signin-form{
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(88, 88, 88);
     display: flex;
     flex-direction: column;
-    margin: 50px auto;
+    margin: 50px auto 0;
     width: 65%;
     background: #fff;
-    height: 600px;
+    height: 450px;
 }
 
 .title-div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-sizing: border-box;
-    background: url('./asset/img/signin-pic.jpg') center center/cover no-repeat;
+    background: url('./asset/img/image-6.jpg') center center/cover no-repeat;
     width: 100%;
-    height: 170px;
     text-align: center;
+}
+
+.title-div h1{
+    padding: 45px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: rgba(35, 30, 92, 0.226);
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
 .loan-title-div{
@@ -103,23 +122,11 @@ main{
     margin-bottom: 25px;
 }
 
+
 .loan-title-div h1{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background: rgba(14, 17, 37, 0.49);
-    display: flex;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-}
-
-.title-div h1{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background: rgba(35, 30, 92, 0.324);
     display: flex;
     box-sizing: border-box;
     height: 100%;
@@ -211,13 +218,28 @@ main{
 }
 
 .submit-div{
+    margin: 15px 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-div p{
+    color: #ffffff;
+}
+
+.submit-div a{
+    font-size: 18px;
+    color: #ffffff;
 }
 
 .submit-input{
-    border: 1px solid rgba(128, 128, 128, 0.502);
-    color: rgb(140, 140, 140);
-    background: none;
+    border: none;
+    border-radius: 10px;
+    color: #F2EDED;
+    background: #C74800;
     display: flex;
     justify-content: center;
     margin: 5px auto;
@@ -225,49 +247,40 @@ main{
     text-align: center;
     cursor: pointer;
     transition: all .5s;
-    width: 100px;
-}
-
-.submit-input:hover{
-    background: rgba(128, 128, 128, 0.502);
-    color: #fff;
-    border: 1px solid transparent;
+    width: 150px;
 }
 
 .login-input-form{
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 40px 80px;
     box-sizing: border-box;
+}
+
+.login-input-div{
+    margin: 40px 10px;
 }
 
 .login-input-div div{
     display: flex;
     flex:1;
     flex-direction: row;
-    /* border: 1px solid red; */
     justify-content: center;
     align-items: center;
     color: rgb(140, 140, 140);
     padding: 10px;
 }
 
-.login-input-div div label{
-    /* border: 1px solid blue; */
-    width: 90px;
-    padding: 5px;
-}
-    .login-input-div div input{
+.login-input-div div input{
     width: 100%;
     padding: 15px 10px;
     outline: none;
     border: none;
-    border-bottom: 1px solid rgb(140, 140, 140);
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 10px;
     font-size: 15px;
     box-sizing: border-box;
     margin: 10px 30px;
-    /* border: 1px solid red; */
 }
 
 .login-input-div div input::placeholder{
