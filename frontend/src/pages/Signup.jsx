@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../feature/auth/auth.slice";
 
@@ -180,10 +180,11 @@ const Signup = () => {
                 />
               </div>
             </div>
-            <div className="submit-div">
+            <div className="signup-submit-div">
               <button className="submit-input" type="submit">
                 Register
               </button>
+              <p>Already have an account? <Link to="/login">Login</Link></p>
             </div>
           </form>
         </div>
