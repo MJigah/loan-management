@@ -39,6 +39,8 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
             onChange={(e) => setLoanAmount(e.target.value)}
           />
         </div>
+      </div>
+      <div className="input-group">
         <div className="input-form">
           <label htmlFor="loan_start">Effective Date</label>
           <input
@@ -64,18 +66,6 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
       </div>
       <div className="input-group">
         <div className="input-form">
-          <label htmlFor="duration">Loan Plan/Duration</label>
-          <input
-            type="number"
-            min="1"
-            name="duration"
-            defaultValue="5"
-            id="duration"
-            value={values.duration}
-            onChange={(e) => setDuration(e.target.value)}
-          />
-        </div>
-        <div className="input-form">
           <label htmlFor="interest">Interest Rate</label>
           <select id="interest">
             <option value={values.interest} defaultValue="2" onClick={(e) => setInterest(e.target.value)}>
@@ -95,6 +85,20 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
       </div>
       <div className="input-group">
         <div className="input-form">
+          <label htmlFor="duration">Loan Plan/Duration</label>
+          <input
+            type="number"
+            min="1"
+            name="duration"
+            defaultValue="5"
+            id="duration"
+            value={values.duration}
+            onChange={(e) => setDuration(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="input-group">
+        <div className="input-form">
           <label htmlFor="monthly_payment">Monthly Pay</label>
           <input
             type="number"
@@ -106,10 +110,10 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
         </div>
       </div>
       <div className="submit-loan-form">
-        <button type="submit" onClick={prevStep}>
+        <button className="prev" type="submit" onClick={prevStep}>
           PREVIOUS
         </button>
-        <button type="submit" onClick={nextStep}>
+        <button className="next" type="submit" onClick={nextStep}>
           NEXT
         </button>
       </div>

@@ -58,10 +58,10 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
         </div>
       </div>
       <div className="submit-loan-form">
-        <button type="submit" onClick={prevStep}>
+        <button className="prev" type="submit" onClick={prevStep}>
           PREVIOUS
         </button>
-        <button type="submit" onClick={nextStep}>
+        <button className="next" type="submit" onClick={nextStep}>
           NEXT
         </button>
       </div>

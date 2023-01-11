@@ -35,18 +35,18 @@ const Declaration = ({ step, prevStep, nextStep, values }) => {
             above declaration.
           </label>
         </p>
-        <div className="declaration-button">
-          <button type="submit">APPLY</button>
-        </div>
       </div>
       <div className="submit-loan-form">
-        <button type="submit" onClick={prevStep}>
+        <button type="submit" className="prev" onClick={prevStep}>
           PREVIOUS
         </button>
-        <button disabled="disabled" type="submit">
+        <button disabled="disabled" className="next" type="submit">
           {""}
         </button>
       </div>
+        <div className="declaration-button">
+          <button type="submit">Apply Now</button>
+        </div>
     </>
   );
 };

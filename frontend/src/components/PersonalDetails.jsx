@@ -22,6 +22,8 @@ const PersonalDetails = ({ step, nextStep, handleChange, values }) => {
             onClick={(e) => setFullname(e.target.value)}
           />
         </div>
+      </div>
+      <div className="input-group">
         <div className="input-form">
           <input
             type="text"
@@ -61,16 +63,6 @@ const PersonalDetails = ({ step, nextStep, handleChange, values }) => {
         <div className="input-form">
           <input
             type="text"
-            name="homeNumber"
-            id="homeNumber"
-            placeholder="Home Number"
-            value={values.homeNumber}
-            onClick={(e) => setHomeNumber(e.target.value)}
-          />
-        </div>
-        <div className="input-form">
-          <input
-            type="text"
             name="workNumber"
             id="workNumber"
             placeholder="Work Number"
@@ -79,9 +71,21 @@ const PersonalDetails = ({ step, nextStep, handleChange, values }) => {
           />
         </div>
       </div>
+      <div className="input-group">
+        <div className="input-form">
+          <input
+            type="text"
+            name="homeNumber"
+            id="homeNumber"
+            placeholder="Home Number"
+            value={values.homeNumber}
+            onClick={(e) => setHomeNumber(e.target.value)}
+          />
+        </div>
+      </div>
       <div className="submit-loan-form">
-        <button type="submit" disabled="disabled">{""}</button>
-        <button type="submit" onClick={nextStep} >NEXT</button>
+        <button type="submit" className="prev" disabled="disabled">{""}</button>
+        <button type="submit" className="next" onClick={nextStep} >NEXT</button>
       </div>
     </>
   );

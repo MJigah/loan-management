@@ -52,22 +52,19 @@ main{
 }
 
 .signin-container{
-    background: url('./asset/img/image-10.jpg') no-repeat center center/cover;
     height: 100vh;
+    background: url('./asset/img/image-10.jpg') no-repeat center center/cover;
 }
 
 .signup-container{
-    height: 100%;
     background: url('./asset/img/image-10-2.jpg') no-repeat center center/cover;
 }
 
 .loan-container{
-    height: 100vh;
-    background: rgb(233, 233, 233);
+    background: url('./asset/img/image-11.jpg') no-repeat center center/cover;
 }
 
 .dashboard-container{
-    height: 100vh;
     background: url('./asset/img/dashboard-pic.jpg') no-repeat center center/cover;
 }
 
@@ -115,18 +112,17 @@ main{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-sizing: border-box;
-    background: url('./asset/img/loan.jpg') center center/cover no-repeat;
+    background: url('./asset/img/image-6.jpg') center center/cover no-repeat;
     width: 100%;
     height: 170px;
     text-align: center;
-    margin-bottom: 25px;
 }
 
 
 .loan-title-div h1{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background: rgba(14, 17, 37, 0.49);
+    background: rgba(69, 70, 80, 0.49);
     display: flex;
     box-sizing: border-box;
     height: 100%;
@@ -316,10 +312,15 @@ main{
 
 .loan-form{
     margin: 80px auto;
-    width: 70%;
+    width: 50%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(79, 79, 79);
-    background: #fff;
+    background: transparent;
+}
+
+.loan-form form{
+    background-color: #f2ededd3;
+    padding: 10px 25px;
 }
 
 .loan-form h1{
@@ -329,27 +330,24 @@ main{
 
 .input-group{
     display:flex;
-    flex-direction: row;
-    margin: 2px 0;
+    flex-direction: column;
+    margin: 30px 0;
 }
 
 .input-group .input-form{
-    padding: 0;
     width: 100%;
 }
 
-.input-group div{
-    margin: 10px 25px;    
-}
 
 .input-group label{
     font-size: 15px;
+    color:rgb(160, 160, 160);
 }
 
 .input-form input{
     padding: 10px;
     width: 100%;
-    margin: 2px 0;
+    /* margin: 2px 0; */
     box-sizing: border-box;
     border: 1px solid rgb(201, 201, 201);
     outline: none;
@@ -425,24 +423,35 @@ input:disabled{
 }
 
 .submit-loan-form button{
-    padding: 7px;
+    padding: 10px 15px;
+    border-radius: 10px;
     border: none;
     outline: none;
-    background: transparent;
-    color: grey;
 }
 
 
 .submit-loan-form button:hover{
     cursor: pointer;
+}
+
+.submit-loan-form button:disabled{
     background: transparent;
-    color: rgb(36, 6, 6);
 }
 
 .submit-loan-form button:disabled:hover{
     cursor: not-allowed;
     font-weight: normal;
     color: grey;
+}
+
+.next{
+    color: #f2eded;
+    background-color: #C74800;
+}
+
+.prev{
+    color: #f2eded;
+    background-color: #1E2C74;
 }
 
 .counter{
@@ -457,14 +466,14 @@ input:disabled{
 
 .declaration-div{
     margin: 0 22px;
-    color:rgb(140, 140, 140)
+    color:black;
 }
 
 .declaration-div p{
-    margin: 10px 0;
+    margin: 30px 0;
 }
 
-.declaration-div .declaration-button{
+.declaration-button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -472,17 +481,13 @@ input:disabled{
 }
 
 .declaration-button button{
-    padding: 10px;
-    width: 100px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    cursor: pointer;
     outline: none;
-    border: 1px solid rgb(180, 180, 180);
-    color: rgb(180, 180, 180);
-    background: transparent;
-}
-
-.declaration-button button:hover{
-    background: rgb(180, 180, 180);
-    color: #fff;
+    border: none;
+    color: #F2EDED;
+    background: #C74800;
 }
 
 .declaration-check input[type="checkbox"]{

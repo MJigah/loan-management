@@ -14,21 +14,23 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
         <div className="input-form">
           <input
             type="text"
-            placeholder="Account Name"
-            name="accountName"
-            id="accountName"
-            value={values.accountName}
-            onClick={(e) => setAccountName(e.target.value)}
-          />
-        </div>
-        <div className="input-form">
-          <input
-            type="text"
             placeholder="Account Number"
             name="accountNumber"
             id="accountNumber"
             value={values.accountNumber}
             onClick={(e) => setAccountNumber(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="input-group">
+        <div className="input-form">
+          <input
+            type="text"
+            placeholder="Account Name"
+            name="accountName"
+            id="accountName"
+            value={values.accountName}
+            onClick={(e) => setAccountName(e.target.value)}
           />
         </div>
       </div>
@@ -48,16 +50,6 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
         <div className="input-form">
           <input
             type="text"
-            placeholder="Mortgage"
-            name="mortgage"
-            id="mortgage"
-            value={values.mortgage}
-            onChange={(e) => setMortgage(e.target.value)}
-          />
-        </div>
-        <div className="input-form">
-          <input
-            type="text"
             placeholder="Asset Value"
             name="assetValue"
             id="assetValue"
@@ -66,11 +58,23 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
           />
         </div>
       </div>
+      <div className="input-group">
+        <div className="input-form">
+          <input
+            type="text"
+            placeholder="Mortgage"
+            name="mortgage"
+            id="mortgage"
+            value={values.mortgage}
+            onChange={(e) => setMortgage(e.target.value)}
+          />
+        </div>
+      </div>
       <div className="submit-loan-form">
-        <button type="submit" onClick={prevStep}>
+        <button className="prev" type="submit" onClick={prevStep}>
           PREVIOUS
         </button>
-        <button type="submit" onClick={nextStep}>
+        <button className="next" type="submit" onClick={nextStep}>
           NEXT
         </button>
       </div>
