@@ -51,7 +51,7 @@ const Dashboard = () => {
             </div>
             <div className="entry-body">
               <div className="entry-info">
-                <img src={profile} alt="profile" />
+                <img src={cash} alt="profile" />
                 <div>
                   <h4>Create a Profile</h4>
                   <p>Register an account and let's get to know you.</p>
@@ -65,7 +65,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="entry-info">
-                <img src={cash} alt="cash" />
+                <img src={profile} alt="cash" />
                 <div>
                   <h4>Get Cash</h4>
                   <p>If you qualify, your cash will be disbursed within minutes to your bank account.</p>
