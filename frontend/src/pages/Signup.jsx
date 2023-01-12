@@ -78,7 +78,9 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div>
+            </div>
+            <div className="input-div">
+            <div>
                 <input
                   id="last_name"
                   type="text"
@@ -112,6 +114,8 @@ const Signup = () => {
                   required
                 />
               </div>
+            </div>
+            <div className="input-div">
               <div>
                 <input
                   id="postal_code"
@@ -139,21 +143,23 @@ const Signup = () => {
             <div className="input-div">
               <div>
                 <input
-                  id="home_no"
-                  type="text"
-                  name="home_no"
-                  placeholder="Home Number"
-                  onChange={(e) => setHomeNo(e.target.value)}
-                  required
-                />
-              </div>
-              <div>
-                <input
                   id="work_no"
                   type="text"
                   name="work_no"
                   placeholder="Work Number"
                   onChange={(e) => setWorkNo(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="input-div">
+              <div>
+                <input
+                  id="home_no"
+                  type="text"
+                  name="home_no"
+                  placeholder="Home Number"
+                  onChange={(e) => setHomeNo(e.target.value)}
                   required
                 />
               </div>
@@ -169,6 +175,8 @@ const Signup = () => {
                   required
                 />
               </div>
+            </div>
+            <div className="input-div">
               <div>
                 <input
                   id="confirmPassword"

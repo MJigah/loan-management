@@ -150,9 +150,9 @@ main{
     height: 100%;
     width: 100%;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 0;
     border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 0;
     background: url('./asset/img/image-6.jpg') no-repeat center center/cover;
 }
 
@@ -160,9 +160,9 @@ main{
     padding: 50px;
     box-sizing: border-box;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 0;
     border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 0;
     height: 100%;
     width: 100%;
     display: flex;
@@ -733,8 +733,19 @@ input:disabled{
         margin: 3px 0;
     }
 
+    .signup-form{
+        margin: 30px auto;
+        width: 70%;
+    }
+
     .signup-title{
-        display: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .signup-title h1{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .loan-form{
@@ -857,11 +868,11 @@ input:disabled{
 
     .input-div{
         flex-direction: column;
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
     .input-div div{
-        margin: 20px 0;
+        margin: 8px 0;
     }
 
     .signup-container{
@@ -871,6 +882,14 @@ input:disabled{
     .signup-form{
         margin: 60px auto;
         width: 80%;
+    }
+
+    .signup-submit-div p{
+        font-size: 12px;
+    }
+
+    .signup-submit-div a{
+        font-size: 12px;
     }
 }
 @media (max-width: 375px){
@@ -986,23 +1005,39 @@ input:disabled{
     }
 
     .signup-form{
-        border: 1px solid black;
-        margin: 100px auto;
+        margin: 30px auto;
+        width: 90%;
+    }
+
+    .input-div{
         padding: 5px;
+        margin: 5px 5px;
         width: 100%;
     }
 
     .input-div div{
-        margin: 0 5px;
-        width: 100%;
-    }
-
-    .input-div{
-        flex-direction: column;
+        margin: 5px 0;
     }
 
     .input-div input{
         width: 100%;
         padding: 5px;
+    }
+
+    .signup-submit-div p{
+        font-size: 12px;
+    }
+
+    .signup-submit-div a{
+        font-size: 12px;
+    }
+
+    .login-input-form{
+        padding: 10px 15px;
+    }
+
+    .login-input-div{
+        margin: 20px 5px;
+        font-size: 12px;
     }
 }
