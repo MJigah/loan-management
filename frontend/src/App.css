@@ -557,23 +557,20 @@ input:disabled{
 }
 
 .card-div{
-    flex: 2;
+    flex: 4;
 }
 
 .sign-div{
     flex: 1;
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: end;
 }
 
 .sign-div a{
-    padding: 8px;
+    padding: 5px;
     color:#fff;
     background: black;
     border-radius: 8px;
-    margin: 0 15px;
+    margin: 0 6px;
 }
 
 .sign-div a:hover{
@@ -915,7 +912,7 @@ input:disabled{
     } 
 
     .sign-div{
-        margin: 5px 10px;
+        box-sizing: border-box;
     }
 
     .sign-div a{
@@ -927,7 +924,7 @@ input:disabled{
         text-align: center;
         font-size: 10px;
         width: 100%;
-        margin: 13px 0 0;
+        margin: 19px 0 0;
     }
 
     #header-span{
