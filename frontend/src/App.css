@@ -923,7 +923,7 @@ input:disabled{
         text-align: center;
         font-size: 15px;
         width: 100%;
-        margin: 23px 0 0;
+        margin: 23px 0 19px;
     }
 
     #header-span{
@@ -957,6 +957,7 @@ input:disabled{
 
     .card-div{
         flex: 3;
+        padding: 5px;
     }
 
     .entry-body{
