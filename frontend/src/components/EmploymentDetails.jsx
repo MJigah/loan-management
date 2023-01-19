@@ -5,6 +5,8 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
   const [deparment, setDeparment] = useState("");
   const [employerAddress, setEmployerAddress] = useState("");
   const [employmentTerm, setEmploymentTerm] = useState("");
+  console.log(values.fullname);
+
 
   return (
     <>      
@@ -17,7 +19,7 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             name="employerNumber"
             id="employerNumber"
             value={values.employerNumber}
-            onClick={(e) => setEmployerNumber(e.target.value)}
+            onClick={(e) => {setEmployerNumber(e.target.value); values.employerNumber = e.target.value}}
           />
         </div>
       </div>
@@ -29,7 +31,7 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             name="department"
             id="department"
             value={values.deparment}
-            onClick={(e) => setDeparment(e.target.value)}
+            onClick={(e) => {setDeparment(e.target.value); values.deparment = e.target.value}}
           />
         </div>
       </div>
@@ -41,7 +43,7 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             name="employerAddress"
             id="employerAddress"
             value={values.employerAddress}
-            onClick={(e) => setEmployerAddress(e.target.value)}
+            onClick={(e) => {setEmployerAddress(e.target.value); values.employerAddress = e.target.value}}
           />
         </div>
       </div>
@@ -53,7 +55,7 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             name="employmenyTerm"
             id="employmenyTerm"
             value={values.employmentTerm}
-            onClick={(e) => setEmploymentTerm(e.target.value)}
+            onClick={(e) => {setEmploymentTerm(e.target.value); values.employmentTerm = e.target.value}}
           />
         </div>
       </div>

@@ -48,6 +48,7 @@ const RequestLoan = () => {
 
   const handleChange = (input) => (e) => {
     setStepStates({ [input]: e.target.value });
+    console.log(stepStates)
   };
 
   const { step } = stepStates;
@@ -115,6 +116,7 @@ const RequestLoan = () => {
                   handleChange={handleChange}
                   values={values}
                   step={step}
+                  stepStates={stepStates}
                 />
               </form>
             </div>

@@ -9,6 +9,7 @@ const swaggerDocs = require('./utils/swagger')
 const connectDb = require('./utils/db')
 const testRoutes = require('./routes/test.routes')
 const userRoutes = require('./routes/user.routes')
+const loanRoutes = require('./routes/loan.routes')
 const port = process.env.PORT || 4000;
 connectDb();
 
@@ -31,6 +32,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use('/api/test', testRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/loan', loanRoutes);
 
 
 

@@ -18,8 +18,8 @@ const PersonalDetails = ({ step, nextStep, handleChange, values }) => {
             placeholder="Full Name"
             name="fullname"
             id="fullname"
-            value={values.fullname}
-            onClick={(e) => setFullname(e.target.value)}
+            // defaultValue={values.fullname}
+            onChange={e => {handleChange(fullname)}}
           />
         </div>
       </div>

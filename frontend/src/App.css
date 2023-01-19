@@ -1030,7 +1030,7 @@ input:disabled{
     }
 
     .signin-form-container{
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
 
     .signin-form{

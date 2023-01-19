@@ -1,588 +1,705 @@
 {
-    "openapi": "3.0.3",
-    "info": {
-      "title": "Swagger API Docs for Loan Management System",
-      "description": "This is a sample Loan Management aAPI documentation based on the OpenAPI 3.0 specification.",
-      "version": "1.0.11"
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger API Docs for Loan Management System",
+    "description": "This is a sample Loan Management aAPI documentation based on the OpenAPI 3.0 specification.",
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "tags": [
+    {
+      "name": "Story",
+      "description": "Everything about your Story Books"
     },
-    "servers": [
-      {
-        "url": "/"
-      }
-    ],
-    "schemes": ["http", "https"],
-    "tags": [
-      {
-        "name": "Story",
-        "description": "Everything about your Story Books"
-      },
-      {
-        "name": "User",
-        "description": "Operations about user"
-      },
-      {
-        "name": "Admin",
-        "description": "Operations for Admin"
-      }
-    ],
-    "paths": {
-      "/api/users/signup": {
-        "post": {
-          "tags": ["User"],
-          "summary": "Create user",
-          "description": "Register a new user to the system.",
-          "operationId": "createUser",
-          "requestBody": {
-            "description": "Created user object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/userSignup"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/userSignup"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/userSignup"
-                }
-              }
-            }
-          },
-          "responses": {
-            "default": {
-              "description": "successful operation",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/api/users/login": {
-        "post": {
-          "tags": ["User"],
-          "summary": "Login user",
-          "description": "Authenticate an existing user.",
-          "operationId": "loginUser",
-          "requestBody": {
-            "description": "Created user object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/userLogin"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/userLogin"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/userLogin"
-                }
-              }
-            }
-          },
-          "responses": {
-            "default": {
-              "description": "successful operation",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/auth/change_password": {
-        "put": {
-          "tags": ["User"],
-          "summary": "Change User Password",
-          "description": "Change User Password.",
-          "operationId": "changePassword",
-          "requestBody": {
-            "description": "User new password",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/changePassword"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/changePassword"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/changePassword"
-                }
-              }
-            }
-          },
-          "security": [
-            {
-              "bearerAuth": []
-            }
-          ],
-          "responses": {
-            "default": {
-              "description": "successful operation",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        }
+    {
+      "name": "User",
+      "description": "Operations about user"
     },
-      "/api/users": {
-        "get": {
-          "tags": ["User"],
-          "summary": "Get User Detail",
-          "description": "Get user detail.",
-          "operationId": "getUser",
-          "security": [
-            {
-              "bearerAuth": []
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "successful operation",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": ["User"],
-          "summary": "Update Admin Details",
-          "description": "Update Admin Details.",
-          "operationId": "updateAdmin",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "description": "id of Admin User",
-              "required": true,
+    {
+      "name": "Loan",
+      "description": "Operations for Loan Opearions"
+    }
+  ],
+  "paths": {
+    "/api/users/signup": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create user",
+        "description": "Register a new user to the system.",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
               "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "requestBody": {
-            "description": "Update user object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/adminUpdates"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/adminUpdates"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/adminUpdates"
-                }
-              }
-            }
-          },
-          "security": [
-            {
-              "bearerAuth": []
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "successful operation",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                },
-                "application/xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "delete": {
-          "tags": ["Admin"],
-          "summary": "Delete admin Details",
-          "description": "Delete admin Details.",
-          "operationId": "deleteAdmin",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "description": "id of Admin User",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "security": [
-            {
-              "bearerAuth": []
-            }
-          ],
-          "responses": {
-            "default": {
-              "description": "successful operation"
-            }
-          }
-        }
-      },
-      "/users/forgot-password": {
-        "post": {
-          "tags": ["User"],
-          "summary": "Forgotten Password",
-          "description": "Forgotten User Password.",
-          "operationId": "forgotPassword",
-          "requestBody": {
-            "description": "User Email Object",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/forgotPassword"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/forgotPassword"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/forgotPassword"
-                }
-              }
-            }
-          },
-          "responses": {
-            "default": {
-              "description": "successful operation"
-            }
-          }
-        }
-      },
-      "/users/reset-password/{id}/{token}": {
-        "post": {
-          "tags": ["User"],
-          "summary": "Resset Password",
-          "description": "Reset User Password.",
-          "operationId": "resetPassword",
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "description": "id of Admin User",
-              "required": true,
-              "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/userSignup"
               }
             },
-            {
-              "name": "token",
-              "in": "path",
-              "description": "newly Created Token",
-              "required": true,
+            "application/xml": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/userSignup"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/userSignup"
               }
             }
-          ],
-          "requestBody": {
-            "description": "New Passwords",
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/resetPassword"
+                  "$ref": "#/components/schemas/User"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/resetPassword"
-                }
-              },
-              "application/x-www-form-urlencoded": {
-                "schema": {
-                  "$ref": "#/components/schemas/resetPassword"
+                  "$ref": "#/components/schemas/User"
                 }
               }
-            }
-          },
-          "responses": {
-            "default": {
-              "description": "successful operation"
             }
           }
         }
       }
     },
-    "components": {
-      "schemas": {
-        "Story": {
-          "type": "object",
-          "properties": {
-            "author": {
-              "type": "string"
+    "/api/users/login": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Login user",
+        "description": "Authenticate an existing user.",
+        "operationId": "loginUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userLogin"
+              }
             },
-            "title": {
-              "type": "string"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/userLogin"
+              }
             },
-            "numberOfPages": {
-              "type": "integer"
-            },
-            "isArchived": {
-              "type": "boolean"
-            },
-            "scenes": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "caption": {
-                    "type": "string"
-                  },
-                  "imageUrl": {
-                    "type": "string"
-                  }
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/userLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }
-          },
-          "json": {
-            "name": "Story"
           }
-        },
-        "User": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string",
-              "example": "theuser@gmail.com"
+        }
+      }
+    },
+    "/auth/change_password": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Change User Password",
+        "description": "Change User Password.",
+        "operationId": "changePassword",
+        "requestBody": {
+          "description": "User new password",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/changePassword"
+              }
             },
-            "username": {
-              "type": "string"
-            }
-          },
-          "json": {
-            "name": "User"
-          }
-        },
-        "subscribeUser": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
-            }
-          },
-          "json": {
-            "name": "userLogin"
-          }
-        },
-        "userSignup": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/changePassword"
+              }
             },
-            "username": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            }
-          },
-          "json": {
-            "name": "userSignup"
-          }
-        },
-        "userLogin": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            }
-          },
-          "json": {
-            "name": "userLogin"
-          }
-        },
-        "adminUpdates": {
-          "type": "object",
-          "properties": {
-            "firstname": {
-              "type": "string"
-            },
-            "lastname": {
-              "type": "string"
-            }
-          },
-          "json": {
-            "name": "userLogin"
-          }
-        },
-        "accessSignToken": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/changePassword"
+              }
             }
           }
         },
-        "storyRequest": {
-          "type": "object",
-          "properties": {
-            "decoded": {
-              "type": "string"
-            },
-            "title": {
-              "type": "string"
-            },
-            "numberOfPages": {
-              "type": "integer"
-            },
-            "scenes": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "caption": {
-                    "type": "string"
-                  },
-                  "imageUrl": {
-                    "type": "string"
-                  }
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }
-          },
-          "json": {
-            "name": "storyRequest"
           }
-        },
-        "apiImage": {
-          "type": "object",
-          "properties": {
-            "prompt": {
-              "type": "string"
-            }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get User Detail",
+        "description": "Get user detail.",
+        "operationId": "getUser",
+        "security": [
+          {
+            "bearerAuth": []
           }
-        },
-        "forgotPassword": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "type": "string"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
             }
-          }
-        },
-        "resetPassword": {
-          "type": "object",
-          "properties": {
-            "password1": {
-              "type": "string"
-            },
-            "password2": {
-              "type": "string"
-            }
-          }
-        },
-        "changePassword": {
-          "type": "object",
-          "properties": {
-            "newPassword": {
-              "type": "string"
-            },
-            "confirmNewPassword": {
-              "type": "string"
-            }
-          }
-        },
-        "ApiResponse": {
-          "type": "object",
-          "properties": {
-            "code": {
-              "type": "integer"
-            },
-            "type": {
-              "type": "string"
-            },
-            "message": {
-              "type": "message"
-            }
-          },
-          "json": {
-            "name": "##default"
           }
         }
       },
-      "securitySchemes": {
-        "bearerAuth": {
-          "type": "http",
-          "scheme": "bearer",
-          "bearerFormat": "JWT"
+      "put": {
+        "tags": ["User"],
+        "summary": "Update Admin Details",
+        "description": "Update Admin Details.",
+        "operationId": "updateAdmin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of Admin User",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/adminUpdates"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/adminUpdates"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/adminUpdates"
+              }
+            }
+          }
         },
-        "api_key": {
-          "type": "apiKey",
-          "name": "api_key",
-          "in": "header"
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Admin"],
+        "summary": "Delete admin Details",
+        "description": "Delete admin Details.",
+        "operationId": "deleteAdmin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of Admin User",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/users/forgot-password": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Forgotten Password",
+        "description": "Forgotten User Password.",
+        "operationId": "forgotPassword",
+        "requestBody": {
+          "description": "User Email Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/forgotPassword"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/forgotPassword"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/forgotPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/users/reset-password/{id}/{token}": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Resset Password",
+        "description": "Reset User Password.",
+        "operationId": "resetPassword",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of Admin User",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "newly Created Token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "New Passwords",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resetPassword"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/resetPassword"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/resetPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/loan/": {
+      "post": {
+        "tags": ["Loan"],
+        "summary": "Request Loan",
+        "description": "Request Loan.",
+        "operationId": "requestLoan",
+        "requestBody": {
+          "description": "New Loan Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/requestLoan"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/requestLoan"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/requestLoan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "Story": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "integer"
+          },
+          "isArchived": {
+            "type": "boolean"
+          },
+          "scenes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "imageUrl": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "json": {
+          "name": "Story"
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "theuser@gmail.com"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "json": {
+          "name": "User"
+        }
+      },
+      "subscribeUser": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "json": {
+          "name": "userLogin"
+        }
+      },
+      "userSignup": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "json": {
+          "name": "userSignup"
+        }
+      },
+      "userLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "json": {
+          "name": "userLogin"
+        }
+      },
+      "adminUpdates": {
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          }
+        },
+        "json": {
+          "name": "userLogin"
+        }
+      },
+      "accessSignToken": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "storyRequest": {
+        "type": "object",
+        "properties": {
+          "decoded": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "integer"
+          },
+          "scenes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "imageUrl": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "json": {
+          "name": "storyRequest"
+        }
+      },
+      "apiImage": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string"
+          }
+        }
+      },
+      "forgotPassword": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "resetPassword": {
+        "type": "object",
+        "properties": {
+          "password1": {
+            "type": "string"
+          },
+          "password2": {
+            "type": "string"
+          }
+        }
+      },
+      "requestLoan": {
+        "type": "object",
+        "properties": {
+          "personalDetails": {
+            "type": "object",
+            "properties": {
+              "full_name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "membership_number": {
+                "type": "string"
+              },
+              "home_address": {
+                "type": "string"
+              },
+              "home_number": {
+                "type": "string"
+              },
+              "work_number": {
+                "type": "string"
+              }
+            }
+          },
+          "employmentDetails": {
+            "type": "object",
+            "properties": {
+              "employer_number": {
+                "type": "string"
+              },
+              "department": {
+                "type": "string"
+              },
+              "employer_address": {
+                "type": "string"
+              },
+              "employment_term": {
+                "type": "string"
+              }
+            }
+          },
+          "loanDetails": {
+            "type": "object",
+            "properties": {
+              "loan_balance": {
+                "type": "integer"
+              },
+              "duration": {
+                "type": "integer"
+              },
+              "loan_amount": {
+                "type": "integer"
+              },
+              "interest": {
+                "type": "integer"
+              },
+              "loan_purpose": {
+                "type": "string"
+              }
+            }
+          },
+          "salaryDetails": {
+            "type": "object",
+            "properties": {
+              "account_name": {
+                "type": "string"
+              },
+              "account_number": {
+                "type": "string"
+              },
+              "salary": {
+                "type": "string"
+              },
+              "mortgage": {
+                "type": "string"
+              },
+              "asset_value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "changePassword": {
+        "type": "object",
+        "properties": {
+          "newPassword": {
+            "type": "string"
+          },
+          "confirmNewPassword": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "message"
+          }
+        },
+        "json": {
+          "name": "##default"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
   }
-  
+}
