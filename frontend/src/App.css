@@ -1047,12 +1047,12 @@ input:disabled{
     }
 
     .login-input-div{
-        margin: 8px;
+        margin: 8px 16px;
         font-size: 12px;
     }
 
     .login-input-div div input{
         margin: 10px 0;
-        padding: 10px 8px;
+        padding: 10px 5px;
     }
 }
