@@ -73,7 +73,7 @@ const Signin = () => {
           </form>
         </div>
         <div className="submit-div">
-          <button className="submit-input" type="submit">
+          <button className="submit-input" type="submit" onClick={submitForm}>
             Login
           </button>
           <p>Don't have an account? <Link to="/signup">Register</Link></p>

@@ -12,8 +12,8 @@ const Dashboard = () => {
     useSelector((state) => state.auth);
 
     const signout = () => {
-      console.log('Signout')
-      dispatch(logout)
+      // console.log('Signout')
+      dispatch(logout())
     }
   useEffect(() => {
     dispatch(getDetails());
