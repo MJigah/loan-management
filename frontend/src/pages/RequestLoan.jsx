@@ -5,8 +5,11 @@ import Declaration from "../components/Declaration";
 import EmploymentDetails from "../components/EmploymentDetails";
 import LoanDetails from "../components/LoanDetails";
 import SalaryDetails from "../components/SalaryDetails";
+import { useDispatch } from "react-redux";
+import { createLoan } from "../feature/loan/loan.slice";
 
 const RequestLoan = () => {
+  const dispatch = useDispatch();
   const onSubmit = (e) => {
     e.preventDefault();
   };
@@ -134,8 +137,7 @@ const RequestLoan = () => {
       mortgage,
       assetValue,
     } = values;
-    // console.log(
-    // );
+
     if (
       fullname === "" ||
       email === "" ||
@@ -161,7 +163,7 @@ const RequestLoan = () => {
     ) {
       toast.error("Field is missing, Please Fill in the field");
     }
-    toast.success("Success!!");
+    dispatch(createLoan({...values}));
 
   };
 

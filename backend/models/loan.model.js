@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
  const personalDetails = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     full_name: {
         type: String,
         required: true,
@@ -41,6 +45,7 @@ const mongoose = require('mongoose');
         type: String,
     }
  })
+
  const loanDetails = new mongoose.Schema({
     loan_balance: {
         type: Number,
