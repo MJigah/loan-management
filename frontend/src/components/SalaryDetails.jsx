@@ -17,8 +17,8 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
             placeholder="Account Number"
             name="accountNumber"
             id="accountNumber"
-            value={values.accountNumber}
-            onClick={(e) => setAccountNumber(e.target.value)}
+            defaultValue={values.accountNumber}
+            onChange={handleChange('accountNumber')}
           />
         </div>
       </div>
@@ -29,8 +29,8 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
             placeholder="Account Name"
             name="accountName"
             id="accountName"
-            value={values.accountName}
-            onClick={(e) => setAccountName(e.target.value)}
+            defaultValue={values.accountName}
+            onChange={handleChange('accountName')}
           />
         </div>
       </div>
@@ -41,8 +41,8 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
             placeholder="Salary"
             name="salary"
             id="salary"
-            value={values.salary}
-            onChange={(e) => setSalary(e.target.value)}
+            defaultValue={values.salary}
+            onChange={handleChange('salary')}
           />
         </div>
       </div>
@@ -53,8 +53,8 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
             placeholder="Asset Value"
             name="assetValue"
             id="assetValue"
-            value={values.assetValue}
-            onChange={(e) => setAssetValue(e.target.value)}
+            defaultValue={values.assetValue}
+            onChange={handleChange('assetValue')}
           />
         </div>
       </div>
@@ -65,8 +65,8 @@ const SalaryDetails = ({step, prevStep, nextStep, values, handleChange}) => {
             placeholder="Mortgage"
             name="mortgage"
             id="mortgage"
-            value={values.mortgage}
-            onChange={(e) => setMortgage(e.target.value)}
+            defaultValue={values.mortgage}
+            onChange={handleChange('mortgage')}
           />
         </div>
       </div>

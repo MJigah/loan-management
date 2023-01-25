@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
 const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
-  const [employerNumber, setEmployerNumber] = useState("");
-  const [deparment, setDeparment] = useState("");
-  const [employerAddress, setEmployerAddress] = useState("");
-  const [employmentTerm, setEmploymentTerm] = useState("");
-  console.log(values.fullname);
-
 
   return (
     <>      
@@ -18,8 +12,8 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             placeholder="Employer's Number"
             name="employerNumber"
             id="employerNumber"
-            value={values.employerNumber}
-            onClick={(e) => {setEmployerNumber(e.target.value); values.employerNumber = e.target.value}}
+            defaultValue={values.employerNumber}
+            onChange={handleChange('employerNumber')}
           />
         </div>
       </div>
@@ -30,8 +24,8 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             placeholder="Department"
             name="department"
             id="department"
-            value={values.deparment}
-            onClick={(e) => {setDeparment(e.target.value); values.deparment = e.target.value}}
+            defaultValue={values.department}
+            onChange={handleChange('department')}
           />
         </div>
       </div>
@@ -42,8 +36,8 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
             placeholder="Employer's Address"
             name="employerAddress"
             id="employerAddress"
-            value={values.employerAddress}
-            onClick={(e) => {setEmployerAddress(e.target.value); values.employerAddress = e.target.value}}
+            defaultValue={values.employerAddress}
+            onChange={handleChange('employerAddress')}
           />
         </div>
       </div>
@@ -52,10 +46,10 @@ const EmploymentDetails = ({ step, prevStep, nextStep, values, handleChange }) =
           <input
             type="text"
             placeholder="Employment Term"
-            name="employmenyTerm"
+            name="employmentTerm"
             id="employmenyTerm"
-            value={values.employmentTerm}
-            onClick={(e) => {setEmploymentTerm(e.target.value); values.employmentTerm = e.target.value}}
+            defaultValue={values.employmentTerm}
+            onChange={handleChange('employmentTerm')}
           />
         </div>
       </div>

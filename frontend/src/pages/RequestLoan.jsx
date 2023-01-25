@@ -22,12 +22,11 @@ const RequestLoan = () => {
     department: "",
     employerAddress: "",
     employmentTerm: "",
-    loanAmount: "",
-    duration: "",
+    loanAmount: "1000",
+    duration: "5",
     loanStart: "",
     loanPurpose: "",
-    emi: "",
-    interest: "",
+    interest: "2",
     monthlyPayment: "",
     accountName: "",
     accountNumber: "",
@@ -37,23 +36,21 @@ const RequestLoan = () => {
   });
 
   const prevStep = () => {
-    const { step } = stepStates;
-    setStepStates({ step: step - 1 });
+    setStepStates({ ...stepStates,
+      step: step - 1 });
   };
 
   const nextStep = () => {
-    const { step } = stepStates;
-    setStepStates({ step: step + 1 });
+    setStepStates({ ...stepStates,
+      step: step + 1 });
   };
 
   const handleChange = (input) => (e) => {
-    setStepStates({ [input]: e.target.value });
-    console.log(stepStates)
+    setStepStates({...stepStates,
+      [input]: e.target.value });
   };
-
-  const { step } = stepStates;
-
   const {
+    step,
     fullname,
     email,
     membershipNumber,
@@ -101,6 +98,10 @@ const RequestLoan = () => {
     assetValue,
   };
 
+  const submitLoan = () => {
+    console.log(values);
+  }
+
   switch (step) {
     case 1:
       return (
@@ -116,7 +117,6 @@ const RequestLoan = () => {
                   handleChange={handleChange}
                   values={values}
                   step={step}
-                  stepStates={stepStates}
                 />
               </form>
             </div>
@@ -199,6 +199,7 @@ const RequestLoan = () => {
                   step={step}
                   prevStep={prevStep}
                   values={values}
+                  submitLoan={submitLoan}
                 />
               </form>
             </div>

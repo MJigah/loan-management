@@ -1,6 +1,6 @@
 import React from "react";
 
-const Declaration = ({ step, prevStep, nextStep, values }) => {
+const Declaration = ({ step, prevStep, submitLoan, values }) => {
   return (
     <>
       <div className="counter">
@@ -45,7 +45,7 @@ const Declaration = ({ step, prevStep, nextStep, values }) => {
         </button>
       </div>
         <div className="declaration-button">
-          <button type="submit">Apply Now</button>
+          <button type="submit" disabled onClick={submitLoan}>Apply Now</button>
         </div>
     </>
   );

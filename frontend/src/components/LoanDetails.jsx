@@ -1,28 +1,20 @@
 import React, { useState } from "react";
 
 const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
-  const [loanAmount, setLoanAmount] = useState("1000");
-  const [duration, setDuration] = useState("5");
-  const [loanStart, setLoanStart] = useState("");
-  const [interest, setInterest] = useState("2");
-  const [loanPurpose, setloanPurpose] = useState("");
-
+  const [overall, setOverall] = useState()
   const calcLoan = () => {
-    var loanAmountInt = parseInt(loanAmount);
-    var durationInt = parseInt(duration);
-    var interestInt = parseInt(interest);
+    var loanAmountInt = parseInt(values.loanAmount);
+    var durationInt = parseInt(values.duration);
+    var interestInt = parseInt(values.interest);
     const loan_div = loanAmountInt / durationInt;
     const loan_interest = (loanAmountInt * interestInt) / 100;
     const calculatedBal = loan_div + loan_interest;
+    
     return calculatedBal;
   };
   const calculatedPay = calcLoan();
-  const loanChange = (e) => {
-    var newDate = e.target.value;
-    setLoanStart(newDate);
-  };
   values.monthlyPayment = calculatedPay;
-  
+
   return (
     <>
     <div className="counter"><p>LOAN INFORMATION</p><p>{step}/5</p></div>
@@ -32,11 +24,10 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
           <input
             type="number"
             min="1000"
-            defaultValue="1000"
             name="loanAmount"
             id="loanAmount"
-            value={values.loanAmount}
-            onChange={(e) => setLoanAmount(e.target.value)}
+            defaultValue={values.loanAmount ? values.loanAmount : '1000'}
+            onChange={handleChange('loanAmount')}
           />
         </div>
       </div>
@@ -47,8 +38,8 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
             type="date"
             name="loanStart"
             id="loanStart"
-            value={values.loanStart}
-            onChange={loanChange}
+            defaultValue={values.loanStart}
+            onChange={handleChange('loanStart')}
           />
         </div>
       </div>
@@ -56,11 +47,10 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
         <div className="input-form">
           <input
             type="text"
-            value={values.loanPurpose}
-            name="loanPurpose"
+            defaultValue={values.loanPurpose ? values.loanPurpose : ''}
             id="loanPurpose"
             placeholder="Purpose of Loan"
-            onChange={(e) => setloanPurpose(e.target.value)}
+            onChange={handleChange('loanPurpose')}
           />
         </div>
       </div>
@@ -68,17 +58,17 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
         <div className="input-form">
           <label htmlFor="interest">Interest Rate</label>
           <select id="interest">
-            <option value={values.interest} defaultValue="2" onClick={(e) => setInterest(e.target.value)}>
-              2%
+            <option defaultValue={values.interest ? values.interest : '2'} onClick={handleChange('interest')}>
+              2
             </option>
-            <option value={values.interest} defaultValue="3" onClick={(e) => setInterest(e.target.value)}>
-              3%
+            <option defaultValue={values.interest ? values.interest : '3'} onClick={handleChange('interest')}>
+              3
             </option>
-            <option value={values.interest} defaultValue="4" onClick={(e) => setInterest(e.target.value)}>
-              4%
+            <option defaultValue={values.interest ? values.interest : '4'} onClick={handleChange('interest')}>
+              4
             </option>
-            <option value={values.interest} defaultValue="5" onClick={(e) => setInterest(e.target.value)}>
-              5%
+            <option defaultValue={values.interest ? values.interest : '5'} onClick={handleChange('interest')}>
+              5
             </option>
           </select>
         </div>
@@ -90,10 +80,9 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
             type="number"
             min="1"
             name="duration"
-            defaultValue="5"
             id="duration"
-            value={values.duration}
-            onChange={(e) => setDuration(e.target.value)}
+            defaultValue={values.duration ? values.duration : '5'}
+            onChange={handleChange('duration')}
           />
         </div>
       </div>
@@ -101,10 +90,10 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
         <div className="input-form">
           <label htmlFor="monthly_payment">Monthly Pay</label>
           <input
-            type="number"
+            type="text"
             name="monthlyPayment"
             id="monthlyPayment"
-            value={calculatedPay}
+            defaultValue={!values.monthlyPayment ? calculatedPay : values.monthlyPayment}
             disabled="disabled"
           />
         </div>
