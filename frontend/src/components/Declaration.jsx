@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Declaration = ({ step, prevStep, submitLoan, values }) => {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <>
       <div className="counter">
@@ -31,8 +32,14 @@ const Declaration = ({ step, prevStep, submitLoan, values }) => {
         </p>
         <p>
           <label className="declaration-check" htmlFor="terms">
-            <input type="checkbox" name="terms" id="terms" /> I agree to the
-            above declaration.
+            <input
+              type="checkbox"
+              name="terms"
+              id="terms"
+              checked={isChecked}
+              onChange={() => setIsChecked((prev) => !prev)}
+            />{" "}
+            I agree to the above declaration.
           </label>
         </p>
       </div>
@@ -44,9 +51,11 @@ const Declaration = ({ step, prevStep, submitLoan, values }) => {
           {""}
         </button>
       </div>
-        <div className="declaration-button">
-          <button type="submit" disabled onClick={submitLoan}>Apply Now</button>
-        </div>
+      <div className="declaration-button">
+        <button className={isChecked ? 'allowed-button' : 'disallowed-button'} type="submit" onClick={submitLoan}>
+          Apply Now
+        </button>
+      </div>
     </>
   );
 };

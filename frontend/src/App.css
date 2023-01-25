@@ -368,10 +368,6 @@ input:disabled{
     cursor:not-allowed
 }
 
-button:disabled{
-    cursor:not-allowed
-}
-
 .input-radio-form{
     display:flex;
     flex-direction: row;
@@ -486,7 +482,7 @@ button:disabled{
     width: 100%;
 }
 
-.declaration-button button{
+.declaration-button .allowed-button{
     padding: 13px 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -494,6 +490,16 @@ button:disabled{
     border: none;
     color: #F2EDED;
     background: #C74800;
+}
+
+.declaration-button .disallowed-button{
+    padding: 13px 15px;
+    border-radius: 10px;
+    cursor: not-allowed;
+    outline: none;
+    border: none;
+    color: #F2EDED;
+    background: #c74900b8;
 }
 
 .declaration-check input[type="checkbox"]{

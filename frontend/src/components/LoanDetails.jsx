@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 
-const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
-  const [overall, setOverall] = useState()
-  const calcLoan = () => {
-    var loanAmountInt = parseInt(values.loanAmount);
-    var durationInt = parseInt(values.duration);
-    var interestInt = parseInt(values.interest);
-    const loan_div = loanAmountInt / durationInt;
-    const loan_interest = (loanAmountInt * interestInt) / 100;
-    const calculatedBal = loan_div + loan_interest;
-    
-    return calculatedBal;
-  };
-  const calculatedPay = calcLoan();
-  values.monthlyPayment = calculatedPay;
-
+const LoanDetails = ({ step, prevStep, nextStep, values, monPay, handleChange }) => {
   return (
     <>
     <div className="counter"><p>LOAN INFORMATION</p><p>{step}/5</p></div>
@@ -93,7 +79,8 @@ const LoanDetails = ({ step, prevStep, nextStep, values, handleChange }) => {
             type="text"
             name="monthlyPayment"
             id="monthlyPayment"
-            defaultValue={!values.monthlyPayment ? calculatedPay : values.monthlyPayment}
+            defaultValue={monPay}
+            onChange={handleChange('monthlyPayment')}
             disabled="disabled"
           />
         </div>
