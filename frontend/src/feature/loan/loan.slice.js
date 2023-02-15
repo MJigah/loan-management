@@ -15,7 +15,7 @@ export const createLoan = createAsyncThunk(
     "loan/create",
     async(data, thunkAPI) => {
         try {
-            return await loanService.register(data);
+            return await loanService.create(data);
         } catch (error) {
             const message =
             (error.response &&

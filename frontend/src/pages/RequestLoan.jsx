@@ -163,6 +163,7 @@ const RequestLoan = () => {
     ) {
       toast.error("Field is missing, Please Fill in the field");
     }
+    console.log('Here!')
     dispatch(createLoan({...values}));
 
   };
@@ -224,6 +225,7 @@ const RequestLoan = () => {
                   values={values}
                   handleChange={handleChange}
                   step={step}
+                  monPay={monPay}
                 />
               </form>
             </div>
@@ -243,8 +245,8 @@ const RequestLoan = () => {
                   prevStep={prevStep}
                   nextStep={nextStep}
                   values={values}
-                  handleChange={handleChange}
                   step={step}
+                  handleChange={handleChange}
                 />
               </form>
             </div>
@@ -264,7 +266,6 @@ const RequestLoan = () => {
                   step={step}
                   prevStep={prevStep}
                   values={values}
-                  monPay={monPay}
                   submitLoan={submitLoan}
                 />
               </form>

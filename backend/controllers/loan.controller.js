@@ -1,4 +1,5 @@
 const Loan = require('../models/loan.model');
+const User = require('../models/user.model');
 
 const createNewLoan = async (req, res) => {
     try {
@@ -24,9 +25,13 @@ const createNewLoan = async (req, res) => {
         salary,
         mortgage,
         assetValue } = req.body;
-        const checkUser = User
+        const checkUser = User.findOne({email: email});
+        if(!checkUser){
+            res.status(500).send({message: 'User not Registered!!'})
+        }
         const createdData = {
             personalDetails: {
+                id: checkUser._id,
                 full_name: fullname,
                 email: email,
                 membership_number: membershipNumber,
@@ -57,7 +62,10 @@ const createNewLoan = async (req, res) => {
             }
         }
         const newLoan = await Loan.create(createdData);
-        res.send('You have requested for a loan');
+        if(!newLoan){
+            res.status(400).send({message: 'Invalid Details'});
+        }
+        res.status(200).send('You have Succesfully requested for a loan');
     } catch (error) {
         res.status(500).send({message: 'A Server Error Occured!'})
         console.log(error)

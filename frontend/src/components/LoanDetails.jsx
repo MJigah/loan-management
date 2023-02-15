@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const LoanDetails = ({ step, prevStep, nextStep, values, monPay, handleChange }) => {
+  const [monthlyPay, setMonthlyPay] = useState(monPay)
   return (
     <>
     <div className="counter"><p>LOAN INFORMATION</p><p>{step}/5</p></div>
@@ -79,7 +80,7 @@ const LoanDetails = ({ step, prevStep, nextStep, values, monPay, handleChange })
             type="text"
             name="monthlyPayment"
             id="monthlyPayment"
-            defaultValue={monPay}
+            defaultValue={monthlyPay}
             onChange={handleChange('monthlyPayment')}
             disabled="disabled"
           />
