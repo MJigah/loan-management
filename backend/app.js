@@ -13,7 +13,11 @@ const loanRoutes = require('./routes/loan.routes')
 const port = process.env.PORT || 4000;
 connectDb();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(morgan('dev'));
 app.use(express.json())
 

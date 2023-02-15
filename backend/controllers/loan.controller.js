@@ -65,7 +65,7 @@ const createNewLoan = async (req, res) => {
         if(!newLoan){
             res.status(400).send({message: 'Invalid Details'});
         }
-        res.status(200).send('You have Succesfully requested for a loan');
+        res.status(200).send({message: 'You have Succesfully requested for a loan'});
     } catch (error) {
         res.status(500).send({message: 'A Server Error Occured!'})
         console.log(error)

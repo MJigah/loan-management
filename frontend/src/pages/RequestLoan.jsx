@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import PersonalDetails from "../components/PersonalDetails";
 import Declaration from "../components/Declaration";
 import EmploymentDetails from "../components/EmploymentDetails";
 import LoanDetails from "../components/LoanDetails";
 import SalaryDetails from "../components/SalaryDetails";
-import { useDispatch } from "react-redux";
-import { createLoan } from "../feature/loan/loan.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { createLoan, reset } from "../feature/loan/loan.slice";
+import { useNavigate } from "react-router-dom";
 
 const RequestLoan = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
   };
+
+  const { loan, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.loan
+  );
 
   const [stepStates, setStepStates] = useState({
     step: 1,
@@ -163,10 +169,21 @@ const RequestLoan = () => {
     ) {
       toast.error("Field is missing, Please Fill in the field");
     }
-    console.log('Here!')
-    dispatch(createLoan({...values}));
-
+    dispatch(createLoan(values));
   };
+
+  useEffect(() => {
+    if (isSuccess && message) {
+      toast.success(message);
+      navigate("/");
+
+      if (isError) {
+        toast.error(message);
+      }
+    }
+
+    dispatch(reset())
+  }, [message, navigate, isSuccess, isError, dispatch]);
 
   switch (step) {
     case 1:
