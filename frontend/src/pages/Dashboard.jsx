@@ -16,7 +16,9 @@ const Dashboard = () => {
       dispatch(logout())
     }
   useEffect(() => {
-    dispatch(getDetails());
+    if(userToken){
+      dispatch(getDetails());
+    }
 
     dispatch(reset());
   }, [dispatch]);
