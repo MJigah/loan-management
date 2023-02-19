@@ -965,6 +965,8 @@ input:disabled{
     .signup-submit-div a{
         font-size: 12px;
     }
+
+    /* Dashboard Stylings */
 }
 @media (max-width: 375px){
     .dashboard-container{
