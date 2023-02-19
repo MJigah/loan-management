@@ -694,8 +694,7 @@ input:disabled{
 }
 
 .landing-cont{
-    margin: 20px 30px;
-    border: 2px solid blue;
+    padding: 20px 30px;
 }
 
 .landing-nav{
@@ -703,6 +702,7 @@ input:disabled{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 0 0 10px;
 }   
 
 .landing-nav div img{
@@ -710,36 +710,49 @@ input:disabled{
 }
 
 .landing-body-top{
-   display: flex;
+    display: flex;
     flex-direction: column;
     background: #ffffff;
+    margin: 10px 90px;
+    padding: 0 35px;
+    border-radius: 10px;
+}
+
+.body-top-1{
+    margin: 10px 10px 20px;
 }
 
 .body-top-2{
-    margin: 5px 60px 0;
+    margin: 5px 15px 0;
     padding: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background: #3a4584;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .landing-body-bottom{
-    border: 1px solid white;
-    margin: 80px 40px;
+    margin: 40px 200px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .body-bottom-1{
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin: 30px 70px;
     padding: 20px;
+}
+
+.sub-links div{
+    margin: 5px 0;
+    background: #ffffff81;
 }
 
 @media (max-width: 960px){
@@ -1119,5 +1132,31 @@ input:disabled{
     .login-input-div div input{
         margin: 10px 0;
         padding: 10px 5px;
+    }
+
+    /* Dashboard Page */
+    .landing-container{
+        font-size: 10px;
+    }
+
+    .landing-cont{
+        padding: 5px 10px;
+    }
+
+    .landing-body-top{
+        margin: 10px;
+        padding: 0 10px;
+    }
+    
+    .landing-body-bottom{
+        margin: 40px 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .body-bottom-1{
+        margin: 15px 10px;
+        padding: 10px;
     }
 }

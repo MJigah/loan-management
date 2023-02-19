@@ -49,13 +49,13 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="landing-body-bottom">
-          <h1>Quick Links</h1>
+          <h2>Quick Links</h2>
           <div className="body-bottom-1">
-            <div>
+            <div className="sub-links">
               <div>Loan Breakdown</div>
               <div>Apply for Loan</div>
             </div>
-            <div>
+            <div className="sub-links">
               <div>Add Payment Account</div>
             </div>
           </div>
