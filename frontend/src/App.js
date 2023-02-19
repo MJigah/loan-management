@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard.jsx";
+import Landing from "./pages/LandingPage";
+import Dashboard from "./pages/Dashboard";
 import About from "./pages/About.jsx";
 import RequestLoan from "./pages/RequestLoan.jsx";
 import Comment from "./pages/Comment.jsx";
@@ -16,7 +16,8 @@ const App = () => {
     <>
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/landing" element={<Landing />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<About />} />
             <Route path="/comment" element={<Comment />} />
