@@ -8,6 +8,7 @@ import SalaryDetails from "../components/SalaryDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { createLoan, reset } from "../feature/loan/loan.slice";
 import { useNavigate } from "react-router-dom";
+import Congratulations from "../components/Congratulations";
 
 const RequestLoan = () => {
   const dispatch = useDispatch();
@@ -184,6 +185,10 @@ const RequestLoan = () => {
 
     dispatch(reset())
   }, [message, navigate, isSuccess, isError, dispatch]);
+
+  if(isSuccess){
+    return (<Congratulations />)
+  }
 
   switch (step) {
     case 1:
