@@ -176,7 +176,6 @@ const RequestLoan = () => {
   useEffect(() => {
     if (isSuccess && message) {
       toast.success(message);
-      navigate("/");
 
       if (isError) {
         toast.error(message);
