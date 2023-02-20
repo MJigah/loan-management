@@ -6,7 +6,7 @@ const loan = JSON.parse(localStorage.getItem("loan"));
 const initialState = {
     loan: loan ? loan : null,
     isError: false,
-    isSuccess: true,
+    isSuccess: false,
     isLoading: false,
     message: "",
 }
