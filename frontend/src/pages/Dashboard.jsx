@@ -18,7 +18,7 @@ const LandingPage = () => {
   };
   useEffect(() => {
     if(!user && !userToken){
-      toast.error('You must sign in first!')
+      toast.info('You must sign in first!')
       navigate('/login?redirect=dashboard');
     }
 
