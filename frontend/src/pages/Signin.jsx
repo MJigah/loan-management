@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login, reset } from "../feature/auth/auth.slice";
 
 const Signin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { search } = useLocation();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
+
+  const redirect = search ? search.split('=')[1] : "" ;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,15 +29,15 @@ const Signin = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate(`/${redirect}`);
     }
     if (isError) {
       toast.error(message);
     }
-
+    
     if (isSuccess && message) {
       toast.success(message);
-      navigate("/");
+      navigate(`/${redirect}`);
     }
 
     dispatch(reset());
