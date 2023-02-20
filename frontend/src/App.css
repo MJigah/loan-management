@@ -768,6 +768,23 @@ input:disabled{
     .login-input-div div input{
         margin: 10px;
     }
+
+        /* Dashboard stylings */
+        .landing-body-top{
+            margin: 20px 18px;
+            padding: 0 15px;
+        }
+    
+        .landing-body-bottom{
+            margin: 30px 35px;
+            padding: 20px;
+        }
+    
+        .body-bottom-1{
+            margin: 15px 20px;
+            padding: 15px;
+            justify-content: space-between;
+        }
 }
 
 @media (max-width: 890px){
@@ -825,6 +842,23 @@ input:disabled{
     .loan-form{
         width: 90%;
         margin: 60px auto;
+    }
+
+    /* Dashboard stylings */
+    .landing-body-top{
+        margin: 20px 18px;
+        padding: 0 15px;
+    }
+
+    .landing-body-bottom{
+        margin: 30px 35px;
+        padding: 20px;
+    }
+
+    .body-bottom-1{
+        margin: 15px 20px;
+        padding: 15px;
+        justify-content: space-between;
     }
 }
 
@@ -967,6 +1001,29 @@ input:disabled{
     }
 
     /* Dashboard Stylings */
+    .landing-container{
+        font-size: 15px;
+    }
+
+    .landing-body-top{
+        margin: 15px 10px;
+        padding: 0 15px;
+    }
+
+    .landing-body-bottom{
+       margin: 30px 20px;
+        padding: 10px;
+    }
+
+    .body-bottom-1{
+        margin: 15px 20px;
+        padding: 15px;
+        justify-content: space-between;
+    }
+
+    .sub-links{
+        margin: 0 20px;
+    }
 }
 @media (max-width: 375px){
     .dashboard-container{
