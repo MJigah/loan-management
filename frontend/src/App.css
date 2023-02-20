@@ -64,6 +64,11 @@ main{
     background: url('./asset/img/image-11.jpg') no-repeat center center/cover;
 }
 
+.congrat-container{
+    background: url('./asset/img/image-11.jpg') no-repeat center center/cover;
+    height: 100vh;
+}
+
 .dashboard-container{
     background: url('./asset/img/dashboard-pic.jpg') no-repeat center center/cover;
 }
@@ -753,6 +758,40 @@ input:disabled{
 .sub-links div{
     margin: 5px 0;
     background: #ffffff81;
+}
+
+.congrat-body{
+    padding: 25px;
+    text-align: center;
+}
+
+.congrat-body-top{
+    color: #308711;
+    margin: 15px 0;
+}
+
+.congrat-body-top h3{
+    font-size: 30px;
+}
+
+.congrat-body-top i{
+    margin: 20px 0;
+}
+
+.congrat-body-desc{
+    margin: 18px 0;
+}
+
+.congrat-body-link{
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.congrat-body-link a{
+    padding: 10px;
+    background: #C74800;
+    color: #fff;
+    border-radius: 5px;
 }
 
 @media (max-width: 960px){
